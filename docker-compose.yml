@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "10001:5432"
+    networks:
+      - db-project-net
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "10002:80"
+    networks:
+      - db-project-net
+    depends_on:
+      - postgres
+    restart: always
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "10003:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - db-project-net
+    restart: always
+
+  # api:
+  #   build:
+  #     context: ../api
+  #     dockerfile: Dockerfile
+  #   container_name: api-container
+  #   tty: true
+  #   ports:
+  #     - "10004:4400"
+  #   environment:
+  #     DB_CONNECTION: postgres
+  #     DB_HOST: postgres
+  #     DB_PORT: 5432
+  #     DB_USERNAME: admin
+  #     DB_PASSWORD: admin
+  #     DB_DATABASE: postgres_db
+
+  #     REDIS_HOST: redis
+  #     REDIS_PORT: 6379
+
+  #     JWT_SECRET: adlkjf289403kjdlsjf238402324kldjalfkds0293840sjfklsjd230948
+  #     JWT_EXPIRES_IN: 1d
+  #     JWT_REFRESH_SECRET: adlkjf289403kjdlsjf238402324fhaksdhfla23874293kldjalfkds0293840sjfklsjd230948
+  #     JWT_REFRESH_EXPIRES_IN: 7d
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #   volumes:
+  #     - ../api:/app
+  #     - ../api/node_modules:/app/node_modules
+  #   entrypoint: [ "sh", "/app/entrypoint.sh" ] # Use sh explicitly
+  #   networks:
+  #     - db-project-net
+
+  # web:
+  #   build:
+  #     context: ../web
+  #     dockerfile: Dockerfile
+  #   container_name: web-container
+  #   tty: true
+  #   ports:
+  #     - "10005:3000"
+  #   environment:
+      
+  #     NEXT_PUBLIC_ENV: development
+  #     NEXT_PUBLIC_API_BASE_URL: http://web:3000
+      
+  #     ORIGINAL_API_BASE_URL: http://api:4400
+  #     API_BASE_URL_V1: http://api:4400/api/mx/v1
+
+  #     NEXTAUTH_URL: http://localhost:10005
+  #     NEXTAUTH_SECRET: IQHLZ6TAM5FRCYY2/9cSQ9ldv+Dn0j8K7gPISZ7svdc=
+  #   volumes:
+  #     - ../web:/app
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - db-project-net
+
+volumes:
+  postgres_data:
+  redis_data:
+
+
+networks:
+  db-project-net:
+    driver: bridge
