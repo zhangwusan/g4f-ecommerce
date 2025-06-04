@@ -14,10 +14,15 @@ import {
 } from 'sequelize-typescript';
 import User from '../user/user.model';
 import CartItem from './cart-item.model';
+import SocialUser from '../user/social-users.model';
 
 @Table({
     tableName: 'cart',
     timestamps: true,
+    paranoid: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+    deletedAt: 'deleted_at',
 })
 class Cart extends Model<Cart> {
     @PrimaryKey
@@ -36,12 +41,13 @@ class Cart extends Model<Cart> {
     @BelongsTo(() => User, { foreignKey: 'user_id' })
     user!: User;
 
+
     @HasMany(() => CartItem, { foreignKey: 'cart_id' })
     cart_items!: CartItem[];
-    // Timestamp
-    @CreatedAt @Column({ field: 'created_at', }) created_at!: Date;
-    @UpdatedAt @Column({ field: 'updated_at', }) updated_at!: Date;
-    @DeletedAt @Column({ field: 'deleted_at', }) deleted_at!: Date;
+    
+    created_at: Date;
+    updated_at: Date;
+    deleted_at: Date;
 }
 
 export default Cart;

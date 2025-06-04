@@ -1,0 +1,4 @@
+2025-05-29 22:22:09,533 - INFO - [START] Scraping subcategories for Beautiful Device & Tools → https://www.stylekorean.com/shop/list.php?ca_id=14
+2025-05-29 22:22:11,476 - INFO - [DONE] Beautiful Device & Tools → Saved 4 subcategories to stylekorean/data/sub_categories/beautiful_device_&_tools_sub_categories.json
+2025-05-29 22:32:36,521 - INFO - [SKIP] Beautiful Device & Tools → Already scraped and saved: stylekorean/data/sub_categories/beautiful_device_&_tools_sub_categories.json
+2025-05-30 12:11:24,080 - INFO - [SKIP] Beautiful Device & Tools → Already scraped and saved: stylekorean/data/sub_categories/beautiful_device_&_tools_sub_categories.json

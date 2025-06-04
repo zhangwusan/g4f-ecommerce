@@ -12,19 +12,23 @@ import User from './user.model';
 @Table({
     tableName: 'roles',
     timestamps: true,
+    paranoid: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+    deletedAt: 'deleted_at',
 })
 class Role extends Model<Role> {
     @Column({ primaryKey: true, autoIncrement: true, type: DataType.INTEGER, allowNull: false, }) id!: number;
     @Column({ type: DataType.STRING(30), allowNull: false, unique: true, }) name!: string;
     @Column({ type: DataType.STRING, allowNull: true, }) description!: string;
 
-    // Timestamp
-    @CreatedAt @Column({ field: 'created_at' }) created_at!: Date;
-    @UpdatedAt @Column({ field: 'updated_at' }) updated_at!: Date;
-
     // Association with User
     @HasMany(() => User)
     users?: User[];
+
+    created_at: Date;
+    updated_at: Date;
+    deleted_at: Date;
 }
 
 export default Role;

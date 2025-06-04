@@ -1,13 +1,18 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { Op, OrderItem } from 'sequelize';
+import { Op, OrderItem, Sequelize } from 'sequelize';
 import Category from '@/app/models/category/category.model';
 import { buildFilterClause, buildSearchClause, buildSortClause, buildTagsClause, combineWhereClauses } from '@/app/common/utils/helper/query.helper';
 import Product from '@/app/models/product/product.model';
-import ProductImage from '@/app/models/product/images.model';
+import ProductImage from '@/app/models/product/product-images.model';
 import { toProductDisplayResponse } from '@/app/common/utils/helper/product.map';
 import { databaseConstants } from '@/app/common/constants/database.constants';
 import { ApiResponse } from '@/app/common/interfaces/api.interface';
 import { ProductDisplayResponse } from '@/app/common/interfaces/product.interface';
+import ProductRating from '@/app/models/product/product-rating.model';
+import { CreateCategoryDto } from './dto';
+import { UserDecoratorType } from '@/app/common/decorators/user.decorator';
+import sequelizeConfig from '@/config/sequelize.config';
+import { BaseQueryDto } from '@/app/common/dto/base-query.dto';
 
 @Injectable()
 export class CategoryService {
@@ -49,7 +54,6 @@ export class CategoryService {
         filter?: Record<string, string>;
         tags?: string[];
     }) {
-        console.log(params)
         try {
             const page = params.page ?? 1;
             const limit = params.limit ?? 10;
@@ -69,19 +73,17 @@ export class CategoryService {
 
 
             // build filter
-            const sortKey = params.sort ?? 'created';
-            const sortOrder: 'asc' | 'desc' = params.order ?? 'desc';
+            const sortKey = params.sort ?? 'id';
+            const sortOrder: 'asc' | 'desc' = params.order ?? 'asc';
             const SORT_CONFIG: Record<string, OrderItem> = {
-                category_id: ['category_id', sortOrder],
-                category_name: ['category_name', sortOrder],
+                id: ['category_id', sortOrder],
+                name: ['category_name', sortOrder],
                 title: [{ model: Product, as: 'products' }, 'product_name', sortOrder],
                 price: [{ model: Product, as: 'products' }, 'price', sortOrder],
-                rating: [{ model: Product, as: 'products' }, 'rating', sortOrder],
-                created: ['created_at', sortOrder],
-                updated: ['updated_at', sortOrder],
+                created_at: ['created_at', sortOrder],
+                updated_at: ['updated_at', sortOrder],
             };
-            const order: OrderItem[] = SORT_CONFIG[sortKey] ? [SORT_CONFIG[sortKey]] : [['created_at', 'desc']];
-
+            const order: OrderItem[] = [SORT_CONFIG[sortKey]];
 
 
             const { rows, count } = await Category.findAndCountAll({
@@ -90,19 +92,50 @@ export class CategoryService {
                 include: [
                     {
                         model: Product,
-                        attributes: ['product_id', 'product_name', 'price', 'discount', 'rating'],
+                        as: 'products',
+                        attributes: [
+                            'product_id',
+                            'product_name',
+                            'price',
+                            'discount',
+                            [
+                                Sequelize.literal(`(
+                                    SELECT AVG(rating)
+                                    FROM product_ratings AS pr
+                                    WHERE pr.product_id = "products"."product_id"
+                                    )`),
+                                'rating_avg',
+                            ],
+                            [
+                                Sequelize.literal(`(
+                                    SELECT COUNT(rating)
+                                    FROM product_ratings AS pr
+                                    WHERE pr.product_id = "products"."product_id"
+                                    )`),
+                                'rating_count',
+                            ],
+                        ],
                         include: [
                             {
                                 model: ProductImage,
                                 as: 'images',
-                                attributes: ['image_url']
-                            }
-                        ]
-                    }
+                                attributes: ['image_url'],
+                                where: { is_main: true },
+                                required: false,
+                            },
+                            {
+                                model: ProductRating,
+                                as: 'ratings',
+                                attributes: [],
+                                required: false,
+                            },
+                        ],
+                    },
                 ],
-                order,
-                limit,
-                offset,
+                order,   // Assumed to be defined somewhere
+                limit,   // Pagination
+                offset,  // Pagination
+                distinct: true, // Important when using include to ensure correct count
             });
 
             return {
@@ -129,13 +162,90 @@ export class CategoryService {
         }
     }
 
+    async get(query: BaseQueryDto) {
+        try {
+            const page = query.page || 1;
+            const limit = query.limit || 10;
+            const offset = (page - 1) * limit;
+            const sortKey = query.sort || 'id';
+            const sortOrder = query.order || 'asc';
+            const search = query.search || '';
+
+            const SORT_CONFIG: Record<string, OrderItem> = {
+                id: ['category_id', sortOrder],
+                name: ['category_name', sortOrder],
+            };
+
+            const order: OrderItem[] = [SORT_CONFIG[sortKey]];
+
+            const whereClause = search
+                ? {
+                    instruction: {
+                        [Op.iLike]: `%${search}%`, // Use Op.like for MySQL
+                    },
+                }
+                : {};
+
+            const { rows: data, count } = await Category.findAndCountAll({
+                attributes: ['category_id', 'category_name', 'created_at', 'updated_at'],
+                where: whereClause,
+                order,
+                limit,
+                offset,
+            });
+
+            return {
+                message: 'Category fetched successfully.',
+                data: data.map(b => ({
+                    id: b.category_id,
+                    name: b.category_name,
+                    created_at: b.created_at.toLocaleString(),
+                    updated_at: b.created_at.toLocaleString(),
+                })),
+                pagination: {
+                    current_page: +page,
+                    per_page: +limit,
+                    total_page: Math.ceil(count / limit),
+                    total_items: count,
+                },
+            };
+        } catch (error) {
+            console.error(error);
+            throw new BadRequestException(error.message);
+        }
+    }
+
+    async view(id: number) {
+        try {
+            const category = await Category.findByPk(id, {
+                attributes: ['category_id', 'category_name', 'description', 'created_at', 'updated_at'],
+            });
+
+            if (!category) {
+                throw new BadRequestException('Category not found');
+            }
+
+            const sanitizedCategory = {
+                category_id: category.category_id ?? 'N/A',
+                category_name: category.category_name ?? 'N/A',
+                description: category.description ?? 'N/A',
+                created_at: category.created_at ?? 'N/A',
+                updated_at: category.updated_at ?? 'N/A',
+            };
+            return sanitizedCategory;
+        } catch (error) {
+            console.log(error);
+            throw new BadRequestException(error.message);
+        }
+    }
+
     async get_product_by_category_name(category_name: string, params: {
         page?: number;
         limit?: number;
         sort?: string;
         order?: 'asc' | 'desc';
         search?: string;
-    }) : Promise<ApiResponse<ProductDisplayResponse[]>>{
+    }): Promise<ApiResponse<ProductDisplayResponse[]>> {
         try {
             const page = params.page ?? 1;
             const limit = params.limit ?? 10;
@@ -148,7 +258,7 @@ export class CategoryService {
             const SORT_CONFIG: Record<string, OrderItem> = {
                 title: ['product_name', sortOrder],
                 price: ['price', sortOrder],
-                rating: ['rating', sortOrder],
+                rating: [{ model: ProductRating, as: 'ratings' }, 'rating', sortOrder],
                 created: ['created_at', sortOrder],
                 updated: ['updated_at', sortOrder],
             };
@@ -169,29 +279,56 @@ export class CategoryService {
                 }
                 : {};
 
-
             const { rows: products, count } = await Product.findAndCountAll({
-                attributes: ['product_id', 'product_name', 'price', 'discount', 'rating'],
                 include: [
                     {
                         model: ProductImage,
                         as: 'images',
-                        attributes: ['image_url']
+                        attributes: ['image_url'],
+                        where: { is_main: true },
+                        required: false,
+                    },
+                    {
+                        model: ProductRating,
+                        as: 'ratings',
+                        attributes: [],
+                        required: false,
                     },
                     {
                         model: Category,
+                        as: 'category',
                         attributes: [],
-                        where: {
-                            category_name: category_name
-                        }
+                        where: category_name ? { category_name } : undefined,
+                        required: !!category_name,
                     }
                 ],
-                limit: limit,
-                offset: offset,
-                order: order,
+                attributes: {
+                    exclude: ['createdAt', 'updatedAt'],
+                    include: [
+                        [
+                            Sequelize.literal(`(
+                                SELECT AVG(rating)
+                                FROM product_ratings AS rating
+                                WHERE rating.product_id = "Product".product_id
+                            )`),
+                            'rating_avg',
+                        ],
+                        [
+                            Sequelize.literal(`(
+                                SELECT COUNT(rating)
+                                FROM product_ratings AS rating
+                                WHERE rating.product_id = "Product".product_id
+                            )`),
+                            'rating_count',
+                        ],
+                    ],
+                },
+                order,
+                limit,
+                offset,
                 where: whereClause,
                 distinct: true,
-            })
+            });
 
             return {
                 message: 'Categories fetched successfully.',
@@ -207,6 +344,99 @@ export class CategoryService {
         } catch (error) {
             console.log(error)
             throw new BadRequestException(error.message)
+        }
+    }
+
+    async create(body: CreateCategoryDto, creator: UserDecoratorType) {
+        const sequelize = new Sequelize(sequelizeConfig);
+        const transaction = await sequelize.transaction();
+
+        try {
+            // Find existing instruction, including soft-deleted
+            const existing = await Category.findOne({
+                where: { category_name: body.category_name },
+                paranoid: false,
+                transaction,
+            });
+
+            if (existing) {
+                if (existing.deleted_at) {
+                    await existing.restore({ transaction });
+                    existing.creator_id = creator.id;
+                    await existing.save({ transaction });
+                    await transaction.commit();
+                    return existing;
+                } else {
+                    throw new BadRequestException('Instruction already exists');
+                }
+            }
+
+            const instruction = await Category.create(
+                {
+                    category_name: body.category_name,
+                    creator_id: creator.id,
+                },
+                { transaction },
+            );
+
+            await transaction.commit();
+            return instruction;
+        } catch (error) {
+            await transaction.rollback();
+            throw error instanceof BadRequestException
+                ? error
+                : new BadRequestException(error.message);
+        }
+    }
+
+    async update(id: number, body: CreateCategoryDto, updater: UserDecoratorType) {
+        const sequelize = new Sequelize(sequelizeConfig);
+        const transaction = await sequelize.transaction();
+
+        try {
+            const category = await Category.findByPk(id);
+            if (!category) {
+                throw new BadRequestException('Category not found');
+            }
+
+            await category.update(
+                {
+                    category_name: body.category_name,
+                    description: body.description,
+                    updater_id: updater.id,
+                },
+                { transaction },
+            );
+
+            await transaction.commit();
+            return category;
+        } catch (error) {
+            await transaction.rollback();
+            throw new BadRequestException(error.message);
+        }
+    }
+
+    async delete(id: number, deleter: UserDecoratorType) {
+        const sequelize = new Sequelize(sequelizeConfig);
+        const transaction = await sequelize.transaction();
+
+        try {
+            const category = await Category.findByPk(id);
+            if (!category) {
+                throw new BadRequestException('Category not found');
+            }
+
+            await category.update({
+                deleter_id: deleter.id
+            });
+
+            await category.destroy({ transaction });
+
+            await transaction.commit();
+            return { message: 'Category deleted successfully' };
+        } catch (error) {
+            await transaction.rollback();
+            throw new BadRequestException(error.message);
         }
     }
 }

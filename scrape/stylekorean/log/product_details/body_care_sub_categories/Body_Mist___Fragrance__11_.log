@@ -1,0 +1,24 @@
+2025-05-30 14:56:20,601 - INFO - Processing: stylekorean/data/product_urls/body_care_sub_categories/Body_Mist___Fragrance__11_.json
+2025-05-30 14:56:20,605 - INFO - [FETCH] https://www.stylekorean.com:443/shop/seapuri-body-mist-200ml/1747894269/
+2025-05-30 14:56:22,633 - INFO - Fetched: https://www.stylekorean.com:443/shop/seapuri-body-mist-200ml/1747894269/
+2025-05-30 14:56:23,639 - INFO - [FETCH] https://www.stylekorean.com:443/shop/parnell-cicamanu-ph-balanced-body-mist-150ml/1712219013/
+2025-05-30 14:56:25,214 - INFO - Fetched: https://www.stylekorean.com:443/shop/parnell-cicamanu-ph-balanced-body-mist-150ml/1712219013/
+2025-05-30 14:56:26,221 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-sleep-tight-pillow-mist-100ml/1673849817/
+2025-05-30 14:56:27,953 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-sleep-tight-pillow-mist-100ml/1673849817/
+2025-05-30 14:56:28,959 - INFO - [FETCH] https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-no.84-jinhae-70ml/1745374318/
+2025-05-30 14:56:31,221 - INFO - Fetched: https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-no.84-jinhae-70ml/1745374318/
+2025-05-30 14:56:32,226 - INFO - [FETCH] https://www.stylekorean.com:443/shop/w.dressroom-renewal-dress-living-clear-perfume-set-10-sense/1672801534/
+2025-05-30 14:56:33,923 - INFO - Fetched: https://www.stylekorean.com:443/shop/w.dressroom-renewal-dress-living-clear-perfume-set-10-sense/1672801534/
+2025-05-30 14:56:34,926 - INFO - [FETCH] https://www.stylekorean.com:443/shop/mixsoon-h.c.t.-body-mist-150ml/1669194531/
+2025-05-30 14:56:36,604 - INFO - Fetched: https://www.stylekorean.com:443/shop/mixsoon-h.c.t.-body-mist-150ml/1669194531/
+2025-05-30 14:56:37,611 - INFO - [FETCH] https://www.stylekorean.com:443/shop/a-pieu-my-handy-roll-on-5-options/1572502202/
+2025-05-30 14:56:39,176 - INFO - Fetched: https://www.stylekorean.com:443/shop/a-pieu-my-handy-roll-on-5-options/1572502202/
+2025-05-30 14:56:40,181 - INFO - [FETCH] https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-70ml/1497932647/
+2025-05-30 14:56:42,713 - INFO - Fetched: https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-70ml/1497932647/
+2025-05-30 14:56:43,723 - INFO - [FETCH] https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-150ml-no.46-pure-lily/1455862048/
+2025-05-30 14:56:45,440 - INFO - Fetched: https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-150ml-no.46-pure-lily/1455862048/
+2025-05-30 14:56:46,443 - INFO - [FETCH] https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-no.49-peach-blossom-70ml/1455867075/
+2025-05-30 14:56:48,889 - INFO - Fetched: https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-no.49-peach-blossom-70ml/1455867075/
+2025-05-30 14:56:49,896 - INFO - [FETCH] https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-70ml-no.45-morning-rain/1455867085/
+2025-05-30 14:56:51,941 - INFO - Fetched: https://www.stylekorean.com:443/shop/w.dressroom-dress-living-clear-perfume-70ml-no.45-morning-rain/1455867085/
+2025-05-30 14:56:52,950 - INFO - [DONE] Saved final data: stylekorean/data/product_details/body_care_sub_categories/Body_Mist___Fragrance__11_.json

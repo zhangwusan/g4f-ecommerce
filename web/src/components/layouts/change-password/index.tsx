@@ -1,96 +1,116 @@
 'use client';
 
-import Form from '@/components/ui/form/generic-form';
-import InputField from '@/components/ui/input-box/input-field';
-import { ChangePasswordRequest } from '@/lib/type/profile.interface';
-import { useState, FormEvent } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { errorToast, successToast } from '../toast';
+
+const formSchema = z
+  .object({
+    oldPassword: z.string().min(1, 'Old password is required'),
+    newPassword: z.string().min(6, 'New password must be at least 6 characters'),
+    confirmPassword: z.string().min(6, 'Please confirm your password'),
+  })
+  .refine((data) => data.newPassword === data.confirmPassword, {
+    message: 'Passwords do not match',
+    path: ['confirmPassword'],
+  });
+
+type ChangePasswordFormValues = z.infer<typeof formSchema>;
 
 export default function ChangePasswordSection() {
-    const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
-    const [passwords, setPasswords] = useState<ChangePasswordRequest>({
-        oldPassword: '',
-        newPassword: '',
-        confirmPassword: '',
-    });
+  const form = useForm<ChangePasswordFormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+    },
+  });
 
-    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setPasswords((prev) => ({ ...prev, [name]: value }));
-    };
+  const onSubmit = async (data: ChangePasswordFormValues) => {
+    try {
+      const res = await fetch('/api/auth/profile/change-password', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
 
-    const submitPasswordChange = async (e: FormEvent) => {
-        e.preventDefault();
+      const result = await res.json();
 
-        if (passwords.newPassword !== passwords.confirmPassword) {
-            setToast({ message: 'Passwords do not match!', type: 'error' });
-            setTimeout(() => setToast(null), 3000);
-            return;
-        }
+      if (!res.ok) {
+        errorToast(result?.message || 'Failed to change password');
+        return;
+      }
 
-        try {
-            const res = await fetch('/api/auth/profile/change-password', {
-                method: 'POST',
-                body: JSON.stringify(passwords),
-            });
+      successToast('Password changed successfully!');
+      form.reset();
+    } catch (err: any) {
+      errorToast(err.error || 'Something went wrong');
+    }
+  };
 
-            const result = await res.json();
-
-            if (!res.ok) {
-                const message = result?.message || 'Failed to change password';
-                setToast({ message, type: 'error' });
-                setTimeout(() => setToast(null), 3000);
-                return;
-            }
-
-            setToast({ message: 'Password changed successfully!', type: 'success' });
-            setPasswords({ oldPassword: '', newPassword: '', confirmPassword: '' });
-            setTimeout(() => setToast(null), 3000);
-        } catch (err) {
-            setToast({ message: 'Something went wrong', type: 'error' });
-            setTimeout(() => setToast(null), 3000);
-        }
-    };
-
-    return (
-        <div className="">
-            <h3 className="text-xl font-semibold mb-4">Change Password</h3>
-            {toast && (
-                <div
-                    className={`mt-4 px-4 py-2 rounded-md text-white text-sm shadow transition-opacity duration-300 ${toast.type === 'success' ? 'bg-green-600' : 'bg-red-600'
-                        }`}
-                >
-                    {toast.message}
-                </div>
+  return (
+    <div>
+      <h3 className="text-xl font-semibold mb-4">Change Password</h3>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-md">
+          <FormField
+            control={form.control}
+            name="oldPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Old Password</FormLabel>
+                <FormControl>
+                  <Input type="password" placeholder="Enter old password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
-            <Form onSubmit={submitPasswordChange} name_button="Update Password" className='w-full'>
-                <InputField
-                    label="Old Password"
-                    name="oldPassword"
-                    type="password"
-                    placeholder="Enter old password"
-                    value={passwords.oldPassword}
-                    onChange={handlePasswordChange}
-                    required
-                />
-                <InputField
-                    label="New Password"
-                    name="newPassword"
-                    type="password"
-                    placeholder="Enter new password"
-                    value={passwords.newPassword}
-                    onChange={handlePasswordChange}
-                    required
-                />
-                <InputField
-                    label="Confirm Password"
-                    name="confirmPassword"
-                    type="password"
-                    placeholder="Confirm new password"
-                    value={passwords.confirmPassword}
-                    onChange={handlePasswordChange}
-                    required
-                />
-            </Form>
-        </div>
-    );
+          />
+
+          <FormField
+            control={form.control}
+            name="newPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>New Password</FormLabel>
+                <FormControl>
+                  <Input type="password" placeholder="Enter new password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Confirm Password</FormLabel>
+                <FormControl>
+                  <Input type="password" placeholder="Confirm new password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <Button type="submit" className="w-full">
+            Update Password
+          </Button>
+        </form>
+      </Form>
+    </div>
+  );
 }

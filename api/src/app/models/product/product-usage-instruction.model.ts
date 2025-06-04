@@ -1,5 +1,6 @@
 import {
     Table, Column, Model, ForeignKey, DataType,
+    BelongsTo,
   } from 'sequelize-typescript';
   import Product from './product.model';
 import UsageInstruction from './usage-instruction.model';

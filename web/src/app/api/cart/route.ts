@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { apiBaseUrlV1, originalApiBaseUrl } from '@/lib/constants/env';
 import { fetchWithToken } from '@/lib/fetch/fetch-with-token';
 import { CartItem } from '@/lib/type/cart.interface';
+import { resolveImageUrl } from '@/lib/xutils/image';
 
 
 // Add to Cart
@@ -51,7 +52,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(data.map((item : CartItem) => ({
       ...item,
-      image: item.image ? originalApiBaseUrl + item.image : '',
+      image: item.image ? resolveImageUrl(item.image, originalApiBaseUrl) : '',
     })), { status: 200 });
   } catch (error) {
     console.error('Error GET :', error);

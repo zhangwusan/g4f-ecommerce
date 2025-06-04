@@ -1,0 +1,22 @@
+2025-05-30 12:15:43,615 - INFO - Processing: stylekorean/data/product_urls/beautiful_device_&_tools_sub_categories/Beauty_Device__10_.json
+2025-05-30 12:15:43,621 - INFO - [FETCH] https://www.stylekorean.com:443/shop/beaund-lashcurl/1746946634/
+2025-05-30 12:15:45,196 - INFO - Fetched: https://www.stylekorean.com:443/shop/beaund-lashcurl/1746946634/
+2025-05-30 12:15:46,209 - INFO - [FETCH] https://www.stylekorean.com:443/shop/d-alba-signature-allthera-double-shot/1746780184/
+2025-05-30 12:15:48,505 - INFO - Fetched: https://www.stylekorean.com:443/shop/d-alba-signature-allthera-double-shot/1746780184/
+2025-05-30 12:15:49,515 - INFO - [FETCH] https://www.stylekorean.com:443/shop/beaund-nmode-pro-ems-v-band/1743217147/
+2025-05-30 12:15:53,227 - INFO - Fetched: https://www.stylekorean.com:443/shop/beaund-nmode-pro-ems-v-band/1743217147/
+2025-05-30 12:15:54,235 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro-mini-pink/1740442476/
+2025-05-30 12:15:57,440 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro-mini-pink/1740442476/
+2025-05-30 12:15:58,447 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro-mini-white/1740442611/
+2025-05-30 12:16:02,049 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro-mini-white/1740442611/
+2025-05-30 12:16:03,054 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-age-r-high-focus-shot/1739780503/
+2025-05-30 12:16:05,645 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-age-r-high-focus-shot/1739780503/
+2025-05-30 12:16:06,652 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-age-r-ultra-tune-40.68/1732865636/
+2025-05-30 12:16:08,667 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-age-r-ultra-tune-40.68/1732865636/
+2025-05-30 12:16:09,671 - INFO - [FETCH] https://www.stylekorean.com:443/shop/centellian24-madeca-prime-facial-toning-device-free-ampoule-30ml/1727329712/
+2025-05-30 12:16:11,237 - INFO - Fetched: https://www.stylekorean.com:443/shop/centellian24-madeca-prime-facial-toning-device-free-ampoule-30ml/1727329712/
+2025-05-30 12:16:12,241 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro/1725413558/
+2025-05-30 12:16:16,776 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro/1725413558/
+2025-05-30 12:16:17,781 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro-pink/1728537845/
+2025-05-30 12:16:22,265 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-age-r-booster-pro-pink/1728537845/
+2025-05-30 12:16:23,271 - INFO - [DONE] Saved final data: stylekorean/data/product_details/beautiful_device_&_tools_sub_categories/Beauty_Device__10_.json

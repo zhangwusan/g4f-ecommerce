@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiBaseUrlV1, originalApiBaseUrl } from '@/lib/constants/env';
 import { fetchWithTokenFormData } from '@/lib/fetch/fetch-with-token';
+import { resolveImageUrl } from '@/lib/xutils/image';
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,7 +20,7 @@ export async function POST(req: NextRequest) {
     const json = await res.json();
     return NextResponse.json({
         ...json,
-        avatar: originalApiBaseUrl + json.avatar
+        avatar: json.avatar ? resolveImageUrl(json.avatar, originalApiBaseUrl) : '',
     });
   } catch (err: any) {
     console.error('Proxy error:', err);

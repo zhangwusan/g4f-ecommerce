@@ -1,6 +1,7 @@
 import { apiBaseUrlV1, originalApiBaseUrl } from "@/lib/constants/env";
 import { fetchWithToken } from "@/lib/fetch/fetch-with-token";
 import { ProfileResponse } from "@/lib/type/profile.interface";
+import { resolveImageUrl } from "@/lib/xutils/image";
 import { NextRequest, NextResponse } from "next/server"
 
 
@@ -21,7 +22,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({
             data: {
                 ...data,
-                avatar: originalApiBaseUrl + data.avatar,
+                avatar: data.avatar ? resolveImageUrl(data.avatar, originalApiBaseUrl) : '',
             },
         })
     } catch (error) {

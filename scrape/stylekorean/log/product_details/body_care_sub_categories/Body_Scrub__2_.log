@@ -1,0 +1,6 @@
+2025-05-30 14:56:12,124 - INFO - Processing: stylekorean/data/product_urls/body_care_sub_categories/Body_Scrub__2_.json
+2025-05-30 14:56:12,127 - INFO - [FETCH] https://www.stylekorean.com:443/shop/medicube-red-acne-body-peeling-shot-2.0-110g/1731396063/
+2025-05-30 14:56:15,667 - INFO - Fetched: https://www.stylekorean.com:443/shop/medicube-red-acne-body-peeling-shot-2.0-110g/1731396063/
+2025-05-30 14:56:16,674 - INFO - [FETCH] https://www.stylekorean.com:443/shop/celimax-one-step-body-brightening-pad-60ea/1646964367/
+2025-05-30 14:56:19,584 - INFO - Fetched: https://www.stylekorean.com:443/shop/celimax-one-step-body-brightening-pad-60ea/1646964367/
+2025-05-30 14:56:20,593 - INFO - [DONE] Saved final data: stylekorean/data/product_details/body_care_sub_categories/Body_Scrub__2_.json

@@ -1,173 +1,191 @@
-import { en, Faker } from '@faker-js/faker';
-import Product from '@/app/models/product/product.model';
-import Color from '@/app/models/product/color.model';
-import Size from '@/app/models/product/size.model';
-import ProductTag from '@/app/models/product/product-tags.model';
 import Brand from '@/app/models/brand/brand.model';
 import Category from '@/app/models/category/category.model';
-import Tag from '@/app/models/product/tag.model';
+import CareInstruction from '@/app/models/product/care-instruction.model';
+import Color from '@/app/models/product/color.model';
+import ProductDimension from '@/app/models/product/dimension.model';
+import ProductImage from '@/app/models/product/product-images.model';
+import Ingredient from '@/app/models/product/ingredient.model';
+import Label from '@/app/models/product/label.model';
+import ProductRating from '@/app/models/product/product-rating.model';
+import ProductVariantStatus from '@/app/models/product/product-variants-status.model';
 import ProductVariant from '@/app/models/product/product-variants.model';
-import ProductImage from '@/app/models/product/images.model';
+import Product from '@/app/models/product/product.model';
+import Size from '@/app/models/product/size.model';
+import Tag from '@/app/models/product/tag.model';
+import UsageInstruction from '@/app/models/product/usage-instruction.model';
+import { faker } from '@faker-js/faker';
 
-const faker = new Faker({ locale: [en] });
-
-faker.location.language().name = 'en';
-
-class ProductGenerator {
-    public static async generateAndInsertMockProducts(count: number): Promise<void> {
-        try {
-            for (let i = 0; i < count; i++) {
-                const mock = this.createMockProduct();
-
-                const brandName = this.createMockBrand();
-                const [brand] = await Brand.findOrCreate({
-                    where: { brand_name: brandName },
-                    defaults: { description: faker.company.catchPhrase() },
-                });
-
-                const categoryName = this.createMockCategories();
-                const [category] = await Category.findOrCreate({
-                    where: { category_name: categoryName },
-                    defaults: { description: faker.commerce.productDescription() },
-                });
-
-                const basePrice = parseFloat(faker.commerce.price());
-                const discount = faker.datatype.boolean() ? parseFloat(faker.commerce.price({ min: 1, max: 50 })) : 0;
-
-                // Create Product
-                const product = await Product.create({
-                    product_name: mock.product_name,
-                    slug: mock.slug + `-${i}`,
-                    short_description: mock.short_description,
-                    description: mock.description,
-                    price: basePrice,
-                    discount: discount,
-                    skin_type: faker.helpers.arrayElement(['dry', 'oily', 'combination', 'sensitive']),
-                    stock: faker.number.int({ min: 0, max: 500 }),
-                    stock_quantity: faker.number.int({ min: 0, max: 500 }),
-                    rating: faker.number.float({ min: 1, max: 5 }),
-                    rating_count: faker.number.int({ min: 1, max: 1000 }),
-                    availability_status: faker.helpers.arrayElement(['in_stock', 'out_of_stock', 'preorder']),
-                    is_featured: mock.is_featured,
-                    best_seller: mock.best_seller,
-                    new_arrival: mock.new_arrival,
-                    manufacturing_date: faker.date.past(),
-                    expiry_date: faker.date.future(),
-                    weight: (faker.number.float({ min: 5, max: 100 }) / 10).toFixed(2),
-                    width: faker.number.float({ min: 5, max: 20 }).toString(),
-                    height: faker.number.float({ min: 5, max: 20 }).toString(),
-                    depth: faker.number.float({ min: 5, max: 20 }).toString(),
-                    return_policy: faker.lorem.sentences(1),
-                    meta_title: faker.commerce.productName(),
-                    meta_description: faker.lorem.sentence(),
-                    brand_id: brand.brand_id,
-                    category_id: category.category_id,
-                });
-
-                const productId = product.product_id;
-
-                // Insert and associate related data
-                await Promise.all([
-                    // Product Tags
-                    ...mock.tags.map(name =>
-                        Tag.findOrCreate({ where: { name } }).then(([tag]) =>
-                            ProductTag.create({ product_id: productId, tag_id: tag.id })
-                        )
-                    ),
-
-                    // Generate Product Variants for each combination of size and color
-                    ...mock.colors.map(async (colorName) => {
-                        const [color] = await Color.findOrCreate({ where: { name: colorName } });
-
-                        return Promise.all(
-                            mock.sizes.map(async (sizeName) => {
-                                const [size] = await Size.findOrCreate({ where: { name: sizeName } });
-
-                                return ProductVariant.create({
-                                    product_id: productId,
-                                    color_id: color.id,
-                                    size_id: size.id,
-                                    price: basePrice,
-                                    discount: discount,
-                                    stock: faker.number.int({ min: 0, max: 200 }),
-                                    availability_status: faker.helpers.arrayElement(['in_stock', 'out_of_stock', 'preorder']),
-                                });
-                            })
-                        );
-                    }),
-
-                    // Product Images (if any)
-                    ...mock.images.map((image_url) =>
-                        ProductImage.create({ product_id: productId, image_url: '/public/images/avocado-optimized.jpg' })
-                    ),
-                ]);
-            }
-        } catch (error) {
-            console.error('Error generating mock products:', error);
-            throw error;
-        }
+function generateUniqueSet(generatorFn: () => string, count: number): string[] {
+    const set = new Set<string>();
+    while (set.size < count) {
+        set.add(generatorFn());
     }
-
-    private static createMockProduct() {
-        return {
-            product_name: faker.commerce.productName(),
-            slug: faker.helpers.slugify(faker.commerce.productName().toLowerCase()),
-            short_description: faker.commerce.productDescription(),
-            description: faker.lorem.paragraphs(2),
-            is_featured: faker.datatype.boolean(),
-            best_seller: faker.datatype.boolean(),
-            new_arrival: faker.datatype.boolean(),
-            tags: faker.helpers.arrayElements(['organic', 'vegan', 'eco', 'hydrating', 'anti-aging'], 2),
-            colors: faker.helpers.arrayElements(['red', 'green', 'blue', 'white', 'black'], 2),
-            sizes: faker.helpers.arrayElements(['S', 'M', 'L', 'XL'], 2),
-            images: Array.from({ length: 3 }, () => faker.image.urlPicsumPhotos()),
-        };
-    }
-
-    private static createMockCategories() {
-        return faker.helpers.arrayElement([
-            'Cleanser',
-            'Toner',
-            'Moisturizer',
-            'Serum',
-            'Essence',
-            'Sunscreen',
-            'Exfoliator',
-            'Mask',
-            'Eye Cream',
-            'Face Oil',
-            'Spot Treatment',
-            'Facial Mist',
-            'Night Cream',
-            'BB Cream',
-            'CC Cream',
-        ]);
-    }
-
-    private static createMockBrand() {
-        return faker.helpers.arrayElement([
-            'GlowTheory',
-            'DermaEssence',
-            'SkinLab',
-            'Lumière',
-            'AquaPure',
-            'NaturaSkin',
-            'RadiantBloom',
-            'SilkenTouch',
-            'Elixir Organics',
-            'Fresh Dew',
-            'ClearAura',
-            'BareGlow',
-            'YouthNest',
-            'Celestique',
-            'Botaniq',
-            'HydraRitual',
-            'TrueSkin Co.',
-            'Velveta',
-            'Zenya Naturals',
-            'NovaDerm',
-        ]);
-    }
+    return Array.from(set);
 }
 
-export default ProductGenerator;
+export class ProductGeneratorSeeder {
+    public static async seed(productCount = 10) {
+        try {
+            // Unique brands
+            const brandNames = generateUniqueSet(() => faker.company.name(), 5);
+            await Brand.bulkCreate(brandNames.map(name => ({ brand_name: name })), { ignoreDuplicates: true });
+            const brands = await Brand.findAll();
+
+            // Unique categories (fixed set, already unique)
+            const skinCategories = ['oily skin', 'dry skin', 'combination skin', 'sensitive skin', 'normal skin'];
+            await Category.bulkCreate(skinCategories.map(name => ({ category_name: name })), { ignoreDuplicates: true });
+            const categories = await Category.findAll();
+
+            // Unique dimensions (make dimension_label unique)
+            const dimensionLabels = generateUniqueSet(() => faker.commerce.productAdjective(), 5);
+            await ProductDimension.bulkCreate(
+                dimensionLabels.map(label => ({
+                    dimension_label: label,
+                    width: `${faker.number.int({ min: 5, max: 20 })}cm`,
+                    height: `${faker.number.int({ min: 5, max: 20 })}cm`,
+                    depth: `${faker.number.int({ min: 1, max: 10 })}cm`,
+                    weight: `${faker.number.int({ min: 100, max: 1000 })}g`
+                })),
+                { ignoreDuplicates: true }
+            );
+            const dimensions = await ProductDimension.findAll();
+
+            // Fixed sizes are unique by default
+            const sizeLabels = ['S', 'M', 'L', 'XL', 'XXL'];
+            await Size.bulkCreate(sizeLabels.map(name => ({ name })), { ignoreDuplicates: true });
+            const sizes = await Size.findAll();
+
+            // Unique colors
+            const colorNames = generateUniqueSet(() => faker.color.human(), 5);
+            await Color.bulkCreate(colorNames.map(name => ({ name })), { ignoreDuplicates: true });
+            const colors = await Color.findAll();
+
+            // Unique tags
+            const tagNames = generateUniqueSet(() => faker.commerce.productAdjective(), 10);
+            await Tag.bulkCreate(tagNames.map(name => ({ name })), { ignoreDuplicates: true });
+            const tags = await Tag.findAll();
+
+            // Unique ingredients
+            const ingredientNames = generateUniqueSet(() => faker.science.chemicalElement().name, 10);
+            await Ingredient.bulkCreate(ingredientNames.map(name => ({ name })), { ignoreDuplicates: true });
+            const ingredients = await Ingredient.findAll();
+
+            // Labels fixed and unique
+            const labelNames = ['featured', 'best_seller', 'new_arrival'];
+            await Label.bulkCreate(labelNames.map(name => ({ name })), { ignoreDuplicates: true });
+            const labels = await Label.findAll();
+
+            // Unique usage instructions
+            const usageInstructionsTexts = generateUniqueSet(() => faker.lorem.sentence(), 5);
+            await UsageInstruction.bulkCreate(usageInstructionsTexts.map(instruction => ({ instruction })));
+            const usageInstructions = await UsageInstruction.findAll();
+
+            // Unique care instructions
+            const careInstructionsTexts = generateUniqueSet(() => faker.lorem.sentence(), 5);
+            await CareInstruction.bulkCreate(careInstructionsTexts.map(instruction => ({ instruction })));
+            const careInstructions = await CareInstruction.findAll();
+
+            // Create Product variante status 
+            await ProductVariantStatus.bulkCreate([
+                { code: 'in_stock', label: 'In Stock' },
+                { code: 'out_of_stock', label: 'Out of Stock' },
+                { code: 'preorder', label: 'Pre-order' },
+            ]);
+            const product_variants_status = await ProductVariantStatus.findAll();
+
+            // Create products with unique data
+            for (let i = 0; i < productCount; i++) {
+                const productName = faker.commerce.productName();
+                const slug = faker.helpers.slugify(productName.toLowerCase());
+
+                const product = await Product.create({
+                    product_name: productName,
+                    price: faker.number.float({ min: 10, max: 50, fractionDigits: 1 }),
+                    discount: faker.number.int({ min: 0, max: 50 }),
+                    slug,
+                    description: faker.lorem.paragraph(),
+                    short_description: faker.lorem.sentence(),
+                    manufacturing_date: faker.date.past(),
+                    expiry_date: faker.date.future(),
+                    return_policy: faker.lorem.paragraph(),
+                    brand_id: faker.helpers.arrayElement(brands).brand_id,
+                    category_id: faker.helpers.arrayElement(categories).category_id,
+                    dimension_id: faker.helpers.arrayElement(dimensions).id,
+                    creator_id: 1,
+                    updater_id: 1,
+                });
+
+                for (let v = 0; v < 3; v++) {
+                    await ProductImage.create({
+                        product_id: product.product_id,
+                        image_url: '/public/images/avocado-optimized.jpg',
+                        is_main: v === 0 ? true : false,
+                    });
+                }
+
+                const usedCombos = new Set<string>();
+
+                for (let v = 0; v < 2; v++) {
+                    let unique = false;
+                    let attempts = 0;
+
+                    while (!unique && attempts < 10) {
+                        const size = faker.helpers.arrayElement(sizes);
+                        const color = faker.helpers.arrayElement(colors);
+                        const comboKey = `${product.product_id}-${color.id}-${size.id}`;
+
+                        if (!usedCombos.has(comboKey)) {
+                            usedCombos.add(comboKey);
+                            unique = true;
+
+                            await ProductVariant.create({
+                                product_id: product.product_id,
+                                size_id: size.id,
+                                color_id: color.id,
+                                price: product.price,
+                                discount: product.discount,
+                                stock: faker.number.int({ min: 0, max: 50 }),
+                                status_id: faker.helpers.arrayElement(product_variants_status).id,
+                            });
+                        }
+
+                        attempts++;
+                    }
+
+                    if (!unique) {
+                        console.warn(`Skipped duplicate variant for product ${product.product_id}`);
+                    }
+                }
+
+                await product.$set('tags', faker.helpers.arrayElements(tags, 3));
+                await product.$set('ingredients', faker.helpers.arrayElements(ingredients, 3));
+                await product.$set('labels', faker.helpers.arrayElements(labels, 1));
+                await product.$set('usage_instructions', faker.helpers.arrayElements(usageInstructions, 2));
+                await product.$set('care_instructions', faker.helpers.arrayElements(careInstructions, 2));
+
+                const totalUsers = 100; // total users in your system
+                const minRatings = 5;   // minimum ratings to create
+                const maxRatings = 100;  // maximum ratings to create
+
+                // generate random number of ratings between min and max
+                const ratingsCount = faker.number.int({ min: minRatings, max: maxRatings });
+
+                for (let i = 0; i < ratingsCount; i++) {
+                    // pick a random user id between 1 and totalUsers
+                    const user_id = faker.number.int({ min: 1, max: totalUsers });
+
+                    await ProductRating.create({
+                        product_id: product.product_id,
+                        user_id,
+                        rating: faker.number.float({ min: 1.0, max: 5.0, fractionDigits: 1 }),
+                        review: faker.lorem.sentences(2),
+                    });
+                }
+            }
+
+            console.log('\x1b[32mProducts and related data seeded successfully.');
+        } catch (error) {
+            console.error('\x1b[31mError seeding products:', error);
+        }
+    }
+}

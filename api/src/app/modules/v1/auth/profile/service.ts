@@ -22,6 +22,7 @@ export class ProfileService {
     menuItems.push(
       { label: 'Profile', href: '/auth/profile' },
       { label: 'Settings', href: '/auth/profile/settings' },
+      { label: 'Payments', href: '/auth/profile/payments' },
       { label: 'Logout' }
     );
 

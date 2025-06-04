@@ -1,0 +1,18 @@
+2025-05-30 12:11:49,323 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Color___Styling__8_.json
+2025-05-30 12:11:49,329 - INFO - [FETCH] https://www.stylekorean.com:443/shop/unove-volume-up-curling-fixer-200ml/1721889261/
+2025-05-30 12:11:51,985 - INFO - Fetched: https://www.stylekorean.com:443/shop/unove-volume-up-curling-fixer-200ml/1721889261/
+2025-05-30 12:11:52,996 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-timedeal-collagen-coating-hair-a-muscle-curl-cream-cer-100-120ml/1724124004/
+2025-05-30 12:11:55,145 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-timedeal-collagen-coating-hair-a-muscle-curl-cream-cer-100-120ml/1724124004/
+2025-05-30 12:11:56,153 - INFO - [FETCH] https://www.stylekorean.com:443/shop/etude-pang-pang-hair-shadow-3-colors/1681175441/
+2025-05-30 12:11:58,014 - INFO - Fetched: https://www.stylekorean.com:443/shop/etude-pang-pang-hair-shadow-3-colors/1681175441/
+2025-05-30 12:11:59,021 - INFO - [FETCH] https://www.stylekorean.com:443/shop/mise-en-scene-all-new-hello-bubble-12-colors/1658883150/
+2025-05-30 12:12:00,754 - INFO - Fetched: https://www.stylekorean.com:443/shop/mise-en-scene-all-new-hello-bubble-12-colors/1658883150/
+2025-05-30 12:12:01,765 - INFO - [FETCH] https://www.stylekorean.com:443/shop/i-dew-care-tap-secret-7ml/1732154724/
+2025-05-30 12:12:03,830 - INFO - Fetched: https://www.stylekorean.com:443/shop/i-dew-care-tap-secret-7ml/1732154724/
+2025-05-30 12:12:04,836 - INFO - [FETCH] https://www.stylekorean.com:443/shop/jennyhouse-premium-hair-color-7abl-ash-blue/1691039206/
+2025-05-30 12:12:06,518 - INFO - Fetched: https://www.stylekorean.com:443/shop/jennyhouse-premium-hair-color-7abl-ash-blue/1691039206/
+2025-05-30 12:12:07,522 - INFO - [FETCH] https://www.stylekorean.com:443/shop/a-pieu-oily-hair-dry-powder/1572423513/
+2025-05-30 12:12:10,440 - INFO - Fetched: https://www.stylekorean.com:443/shop/a-pieu-oily-hair-dry-powder/1572423513/
+2025-05-30 12:12:11,448 - INFO - [FETCH] https://www.stylekorean.com:443/shop/miseenscene-hello-bubble-5a-dark-ash/1625563435/
+2025-05-30 12:12:13,172 - INFO - Fetched: https://www.stylekorean.com:443/shop/miseenscene-hello-bubble-5a-dark-ash/1625563435/
+2025-05-30 12:12:14,183 - INFO - [DONE] Saved final data: stylekorean/data/product_details/hair_care_sub_categories/Hair_Color___Styling__8_.json

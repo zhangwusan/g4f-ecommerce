@@ -1,0 +1,12 @@
+2025-05-29 22:29:34,084 - INFO - [START] Scraping: Shampoo & Conditioner (40) → https://www.stylekorean.com/shop/list.php?ca_id=1310
+2025-05-29 22:29:38,806 - INFO - [DONE] Shampoo & Conditioner (40) — saved 40 products to Shampoo___Conditioner__40_.json
+2025-05-29 22:29:38,812 - INFO - [START] Scraping: Hair Treatment (25) → https://www.stylekorean.com/shop/list.php?ca_id=1320
+2025-05-29 22:29:42,554 - INFO - [DONE] Hair Treatment (25) — saved 25 products to Hair_Treatment__25_.json
+2025-05-29 22:29:42,558 - INFO - [START] Scraping: Hair Essence & Serum (18) → https://www.stylekorean.com/shop/list.php?ca_id=1330
+2025-05-29 22:29:46,099 - INFO - [DONE] Hair Essence & Serum (18) — saved 18 products to Hair_Essence___Serum__18_.json
+2025-05-29 22:29:46,106 - INFO - [START] Scraping: Hair Color & Styling (8) → https://www.stylekorean.com/shop/list.php?ca_id=1340
+2025-05-29 22:29:49,251 - INFO - [DONE] Hair Color & Styling (8) — saved 8 products to Hair_Color___Styling__8_.json
+2025-05-29 22:32:29,111 - INFO - [SKIP] Shampoo & Conditioner (40) — already exists: stylekorean/data/product_urls/hair_care_sub_categories/Shampoo___Conditioner__40_.json
+2025-05-29 22:32:29,114 - INFO - [SKIP] Hair Treatment (25) — already exists: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Treatment__25_.json
+2025-05-29 22:32:29,116 - INFO - [SKIP] Hair Essence & Serum (18) — already exists: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Essence___Serum__18_.json
+2025-05-29 22:32:29,118 - INFO - [SKIP] Hair Color & Styling (8) — already exists: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Color___Styling__8_.json

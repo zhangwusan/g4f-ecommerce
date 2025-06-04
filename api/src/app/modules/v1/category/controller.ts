@@ -1,6 +1,8 @@
-import { Controller, Get, Param, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query } from "@nestjs/common";
 import { CategoryService } from "./service";
 import { BaseQueryDto } from "@/app/common/dto/base-query.dto";
+import { CreateCategoryDto } from "./dto";
+import { UserDecorator, UserDecoratorType } from "@/app/common/decorators/user.decorator";
 
 @Controller()
 export class CategoryController {
@@ -11,6 +13,13 @@ export class CategoryController {
         @Query() query: BaseQueryDto
     ) {
         return this._service.get_data(query);
+    }
+
+    @Get('all-categories')
+    get(
+        @Query() query: BaseQueryDto
+    ) {
+        return this._service.get(query);
     }
 
     @Get('setup')
@@ -26,7 +35,7 @@ export class CategoryController {
         @Query('sort') sort?: string,
         @Query('order') order?: 'asc' | 'desc',
         @Query('search') search?: string,
-    ){
+    ) {
         if (!page || !limit) {
             page = 1,
                 limit = 10
@@ -40,4 +49,37 @@ export class CategoryController {
         }
         return this._service.get_product_by_category_name(category_name, params);
     }
+
+    @Post()
+    create(
+        @Body() body: CreateCategoryDto,
+        @UserDecorator() creator: UserDecoratorType
+    ) {
+        return this._service.create(body, creator)
+    }
+
+    @Get(':id')
+    async view(
+        @Param('id', ParseIntPipe) id: number
+    ) {
+        return this._service.view(id);
+    }
+
+    @Put(':id')
+    async update(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() body: CreateCategoryDto,
+        @UserDecorator() updater: UserDecoratorType,
+    ) {
+        return this._service.update(id, body, updater);
+    }
+
+    @Delete(':id')
+    async delete(
+        @Param('id', ParseIntPipe) id: number,
+        @UserDecorator() deleter: UserDecoratorType,
+    ) {
+        return this._service.delete(id, deleter);
+    }
+
 }

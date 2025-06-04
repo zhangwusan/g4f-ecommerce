@@ -5,6 +5,9 @@ export interface UserPayload {
     avatar: string;
     email: string;
     role: number;
+    role_name: string;
+    is_2fa: boolean;
+    is_2fa_verified?: boolean;
 }
 
 export interface JwtPayload {

@@ -8,6 +8,8 @@ import NextAuthSessionProvider from "@/components/provider/session-provider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/next-auth/options";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { SessionGuard } from "@/components/session-guard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,22 +30,25 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <NextAuthSessionProvider session={session}>
-      <html lang="en" suppressHydrationWarning>
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <CartProvider>
-              <DefaultLayoutApp>
-                {children}
-              </DefaultLayoutApp>
-            </CartProvider>
-          </ThemeProvider>
-        </body>
-      </html>
+      <SessionGuard>
+        <html lang="en" suppressHydrationWarning>
+          <body className={`${geistSans.variable} ${geistMono.variable}`}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <CartProvider>
+                <DefaultLayoutApp>
+                  {children}
+                </DefaultLayoutApp>
+              </CartProvider>
+            </ThemeProvider>
+            <Toaster />
+          </body>
+        </html>
+      </SessionGuard>
     </NextAuthSessionProvider>
   );
 }

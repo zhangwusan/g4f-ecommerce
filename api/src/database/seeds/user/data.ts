@@ -1,21 +1,43 @@
-import { RoleEnum } from "@/app/common/utils/enum/role.enum";
+import { RoleEnum, RoleEnumMap } from "@/app/common/utils/enum/role.enum";
+
+export const generateUsers = (count: number) => {
+    const users = [];
+
+    for (let i = 1; i <= count; i++) {
+        users.push({
+            first_name: `User${i}`,
+            last_name: `Test${i}`,
+            username: `user${i}`,
+            email: `user${i}@example.com`,
+            password: '12345678',
+            phone_number: `09${(10000000 + i).toString().slice(-8)}`,
+            address: `${i * 10} Example St, City`,
+            avatar: '/public/static/avatar.jpg',
+            is_active: true,
+            role_id: RoleEnum.USER,
+            creator_id: 1,
+        });
+    }
+    return users;
+};
 
 export const data = {
     roles: [
         {
-            id: RoleEnum.ADMIN,
-            name: 'admin',
+            name: RoleEnumMap[RoleEnum.ADMIN],
             description: 'Administrator role with full access',
         },
         {
-            id: RoleEnum.USER,
-            name: 'user',
+            name: RoleEnumMap[RoleEnum.USER],
             description: 'Regular user role with limited access',
         },
         {
-            id: RoleEnum.GUEST,
-            name: 'guest',
+            name: RoleEnumMap[RoleEnum.GUEST],
             description: 'Guest role with minimal access',
+        },
+        {
+            name: RoleEnumMap[RoleEnum.REGISTER],
+            description: 'Register role with minimal access',
         }
     ],
     user: [
@@ -30,30 +52,33 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.ADMIN, // Admin role
+            creator_id: 1
         },
         {
-            first_name: 'Sok',
-            last_name: 'Davan',
-            username: 'sokdavan',
-            email: 'sokdavan@gmail.com',
-            password: 'sokdavan@1234',
+            first_name: 'Register',
+            last_name: 'register',
+            username: 'register',
+            email: 'register@gmail.com',
+            password: 'Register@1234',
             phone_number: '0123456789',
             address: '123 Street, City',
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // User role
+            creator_id: 1
         },
         {
-            first_name: 'Sok',
-            last_name: 'Ny',
-            username: 'sokny',
-            email: 'sokny@gmail.com',
-            password: 'sokny@1234',
+            first_name: 'hack',
+            last_name: 'me',
+            username: 'h43kme',
+            email: 'h43kme@gmail.com',
+            password: '12345678',
             phone_number: '0123456789',
             address: '123 Street, City',
             avatar: '/public/static/avatar.jpg',
             is_active: true,
-            role_id: RoleEnum.USER, // Guest role
+            role_id: RoleEnum.ADMIN,
+            creator_id: 1
         },
         {
             first_name: 'Alice',
@@ -66,6 +91,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // User role
+            creator_id: 1
         },
         {
             first_name: 'Bob',
@@ -78,6 +104,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // User role
+            creator_id: 1
         },
         {
             first_name: 'Charlie',
@@ -90,6 +117,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // Guest role
+            creator_id: 1
         },
         {
             first_name: 'Diana',
@@ -102,6 +130,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // User role
+            creator_id: 1
         },
         {
             first_name: 'Eve',
@@ -114,6 +143,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.GUEST, // Guest role
+            creator_id: 1
         },
         {
             first_name: 'Frank',
@@ -126,6 +156,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // User role
+            creator_id: 1
         },
         {
             first_name: 'Grace',
@@ -138,6 +169,7 @@ export const data = {
             avatar: '/public/static/avatar.jpg',
             is_active: true,
             role_id: RoleEnum.USER, // Admin role
-        }
+            creator_id: 1
+        },
     ]
 };

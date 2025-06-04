@@ -24,6 +24,15 @@ export class JwtService {
     };
   }
 
+  signTempAccessToken(
+    payload: {
+      id: number, is_2fa: boolean
+    },
+    expire
+  ) {
+    return jwt.sign({ user: payload }, this.accessSecret, expire);
+  }
+
   signAccessToken(payload: UserPayload): string {
     return jwt.sign({ user: payload }, this.accessSecret, this.accessSignOptions);
   }
@@ -52,15 +61,15 @@ export class JwtService {
     if (typeof expiresIn === 'number') {
       return expiresIn * 1000;
     }
-  
+
     const regex = /^(\d+)([smhd])$/; // supports s, m, h, d
     const match = expiresIn.match(regex);
-  
+
     if (!match) return 0;
-  
+
     const value = parseInt(match[1], 10);
     const unit = match[2];
-  
+
     switch (unit) {
       case 's': return value * 1000;
       case 'm': return value * 60 * 1000;

@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
       message: 'Categories fetched successfully.',
       data: data?.map(product => ({
         ...product,
-        images: product.images.map(image => originalApiBaseUrl + image),
+        images: product.images.map(image => image),
       })),
       pagination,
     }, { status: 200 });

@@ -1,0 +1,92 @@
+2025-05-29 22:31:14,753 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Treatment__25_.json
+2025-05-29 22:31:14,757 - INFO - [FETCH] https://www.stylekorean.com:443/shop/treecell-collagen-boost-scalp-pack-200ml/1740105050/
+2025-05-29 22:31:17,163 - INFO - Fetched: https://www.stylekorean.com:443/shop/treecell-collagen-boost-scalp-pack-200ml/1740105050/
+2025-05-29 22:31:18,170 - INFO - [FETCH] https://www.stylekorean.com:443/shop/treecell-forte-ampoule-treatment-200ml/1740104149/
+2025-05-29 22:31:20,502 - INFO - Fetched: https://www.stylekorean.com:443/shop/treecell-forte-ampoule-treatment-200ml/1740104149/
+2025-05-29 22:31:21,509 - INFO - [FETCH] https://www.stylekorean.com:443/shop/treecell-triple-bonding-treatment-250ml/1739263824/
+2025-05-29 22:31:23,378 - INFO - Fetched: https://www.stylekorean.com:443/shop/treecell-triple-bonding-treatment-250ml/1739263824/
+2025-05-29 22:31:24,385 - INFO - [FETCH] https://www.stylekorean.com:443/shop/growus-sea-salt-therapy-treatment-235ml/1732262905/
+2025-05-29 22:31:27,555 - INFO - Fetched: https://www.stylekorean.com:443/shop/growus-sea-salt-therapy-treatment-235ml/1732262905/
+2025-05-29 22:31:28,562 - INFO - [FETCH] https://www.stylekorean.com:443/shop/growus-algae-therapy-no-wash-treatment-150ml/1732255115/
+2025-05-29 22:31:30,519 - INFO - Fetched: https://www.stylekorean.com:443/shop/growus-algae-therapy-no-wash-treatment-150ml/1732255115/
+2025-05-29 22:31:31,524 - INFO - [FETCH] https://www.stylekorean.com:443/shop/growus-damage-therapy-no-wash-treatment-ex-250ml/1732245481/
+2025-05-29 22:31:34,741 - INFO - Fetched: https://www.stylekorean.com:443/shop/growus-damage-therapy-no-wash-treatment-ex-250ml/1732245481/
+2025-05-29 22:31:35,745 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.melaxin-bondex-protein-bonding-remodeling-clinic-250ml/1730783654/
+2025-05-29 22:31:37,229 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.melaxin-bondex-protein-bonding-remodeling-clinic-250ml/1730783654/
+2025-05-29 22:31:38,240 - INFO - [FETCH] https://www.stylekorean.com:443/shop/heimish-rx-amino-keratin-heat-protecting-leave-in-treatment-150ml/1729659059/
+2025-05-29 22:31:42,836 - INFO - Fetched: https://www.stylekorean.com:443/shop/heimish-rx-amino-keratin-heat-protecting-leave-in-treatment-150ml/1729659059/
+2025-05-29 22:31:43,845 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-phyto-fresh-tonic-100ml/1721886988/
+2025-05-29 22:31:46,016 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-fresh-tonic-100ml/1721886988/
+2025-05-29 22:31:47,019 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-treatment-500ml/1721884127/
+2025-05-29 22:31:48,875 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-treatment-500ml/1721884127/
+2025-05-29 22:31:49,882 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-folligen-silk-treatment-300ml/1721883576/
+2025-05-29 22:31:51,540 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-silk-treatment-300ml/1721883576/
+2025-05-29 22:31:52,545 - INFO - [FETCH] https://www.stylekorean.com:443/shop/g9skin-self-aesthetic-silky-hair-mask-5p/1719466623/
+2025-05-29 22:31:54,139 - INFO - Fetched: https://www.stylekorean.com:443/shop/g9skin-self-aesthetic-silky-hair-mask-5p/1719466623/
+2025-05-29 22:31:55,142 - INFO - [FETCH] https://www.stylekorean.com:443/shop/secret-key-so-fast-mu-coating-silk-protein-treatment-500g/1706144077/
+2025-05-29 22:31:56,727 - INFO - Fetched: https://www.stylekorean.com:443/shop/secret-key-so-fast-mu-coating-silk-protein-treatment-500g/1706144077/
+2025-05-29 22:31:57,732 - INFO - [FETCH] https://www.stylekorean.com:443/shop/unove-no-wash-water-ampoule-treatment-200ml/1681183686/
+2025-05-29 22:32:01,515 - INFO - Fetched: https://www.stylekorean.com:443/shop/unove-no-wash-water-ampoule-treatment-200ml/1681183686/
+2025-05-29 22:32:02,520 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-jasmine-vetiver-50ml/1673850271/
+2025-05-29 22:32:04,118 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-jasmine-vetiver-50ml/1673850271/
+2025-05-29 22:32:05,124 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-folligen-treatment-200ml/1658208833/
+2025-05-29 22:32:06,682 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-treatment-200ml/1658208833/
+2025-05-29 22:32:07,688 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-folligen-scalp-pack-250ml/1656659219/
+2025-05-29 22:32:43,881 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Treatment__25_.json
+2025-05-29 22:32:43,884 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-collagen-boost-scalp-pack-200ml/1740105050/
+2025-05-29 22:32:43,887 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-forte-ampoule-treatment-200ml/1740104149/
+2025-05-29 22:32:43,889 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-triple-bonding-treatment-250ml/1739263824/
+2025-05-29 22:32:43,891 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-sea-salt-therapy-treatment-235ml/1732262905/
+2025-05-29 22:32:43,893 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-algae-therapy-no-wash-treatment-150ml/1732255115/
+2025-05-29 22:32:43,898 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-damage-therapy-no-wash-treatment-ex-250ml/1732245481/
+2025-05-29 22:32:43,902 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.melaxin-bondex-protein-bonding-remodeling-clinic-250ml/1730783654/
+2025-05-29 22:32:43,906 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/heimish-rx-amino-keratin-heat-protecting-leave-in-treatment-150ml/1729659059/
+2025-05-29 22:32:43,909 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-fresh-tonic-100ml/1721886988/
+2025-05-29 22:32:43,913 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-treatment-500ml/1721884127/
+2025-05-29 22:32:43,916 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-silk-treatment-300ml/1721883576/
+2025-05-29 22:32:43,918 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/g9skin-self-aesthetic-silky-hair-mask-5p/1719466623/
+2025-05-29 22:32:43,921 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/secret-key-so-fast-mu-coating-silk-protein-treatment-500g/1706144077/
+2025-05-29 22:32:43,923 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/unove-no-wash-water-ampoule-treatment-200ml/1681183686/
+2025-05-29 22:32:43,926 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-jasmine-vetiver-50ml/1673850271/
+2025-05-29 22:32:43,928 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-treatment-200ml/1658208833/
+2025-05-29 22:32:43,930 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-folligen-scalp-pack-250ml/1656659219/
+2025-05-29 22:32:48,889 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-scalp-pack-250ml/1656659219/
+2025-05-29 22:32:49,902 - INFO - [FETCH] https://www.stylekorean.com:443/shop/unove-heating-guard-no-wash-treatment-147ml/1655955359/
+2025-05-29 22:32:53,175 - INFO - Fetched: https://www.stylekorean.com:443/shop/unove-heating-guard-no-wash-treatment-147ml/1655955359/
+2025-05-29 22:32:54,185 - INFO - [FETCH] https://www.stylekorean.com:443/shop/pyunkang-yul-low-ph-scalp-treatment-290ml/1647407265/
+2025-05-29 22:32:56,162 - INFO - Fetched: https://www.stylekorean.com:443/shop/pyunkang-yul-low-ph-scalp-treatment-290ml/1647407265/
+2025-05-29 22:32:57,168 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-rosemary-3-in-1-treatment-160ml/1641521534/
+2025-05-29 22:32:59,443 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-rosemary-3-in-1-treatment-160ml/1641521534/
+2025-05-29 22:33:00,447 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-muscle-treatment-rinse-500ml/1716862823/
+2025-05-30 12:11:31,509 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Treatment__25_.json
+2025-05-30 12:11:31,512 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-collagen-boost-scalp-pack-200ml/1740105050/
+2025-05-30 12:11:31,514 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-forte-ampoule-treatment-200ml/1740104149/
+2025-05-30 12:11:31,515 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-triple-bonding-treatment-250ml/1739263824/
+2025-05-30 12:11:31,517 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-sea-salt-therapy-treatment-235ml/1732262905/
+2025-05-30 12:11:31,519 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-algae-therapy-no-wash-treatment-150ml/1732255115/
+2025-05-30 12:11:31,520 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-damage-therapy-no-wash-treatment-ex-250ml/1732245481/
+2025-05-30 12:11:31,522 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.melaxin-bondex-protein-bonding-remodeling-clinic-250ml/1730783654/
+2025-05-30 12:11:31,524 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/heimish-rx-amino-keratin-heat-protecting-leave-in-treatment-150ml/1729659059/
+2025-05-30 12:11:31,526 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-fresh-tonic-100ml/1721886988/
+2025-05-30 12:11:31,528 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-treatment-500ml/1721884127/
+2025-05-30 12:11:31,530 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-silk-treatment-300ml/1721883576/
+2025-05-30 12:11:31,532 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/g9skin-self-aesthetic-silky-hair-mask-5p/1719466623/
+2025-05-30 12:11:31,534 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/secret-key-so-fast-mu-coating-silk-protein-treatment-500g/1706144077/
+2025-05-30 12:11:31,536 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/unove-no-wash-water-ampoule-treatment-200ml/1681183686/
+2025-05-30 12:11:31,539 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-jasmine-vetiver-50ml/1673850271/
+2025-05-30 12:11:31,541 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-treatment-200ml/1658208833/
+2025-05-30 12:11:31,593 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-folligen-scalp-pack-250ml/1656659219/
+2025-05-30 12:11:31,595 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/unove-heating-guard-no-wash-treatment-147ml/1655955359/
+2025-05-30 12:11:31,598 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/pyunkang-yul-low-ph-scalp-treatment-290ml/1647407265/
+2025-05-30 12:11:31,600 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-rosemary-3-in-1-treatment-160ml/1641521534/
+2025-05-30 12:11:31,602 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-muscle-treatment-rinse-500ml/1716862823/
+2025-05-30 12:11:34,709 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-muscle-treatment-rinse-500ml/1716862823/
+2025-05-30 12:11:35,717 - INFO - [FETCH] https://www.stylekorean.com:443/shop/pyunkang-yul-low-ph-scalp-treatment-500ml/1640046259/
+2025-05-30 12:11:37,623 - INFO - Fetched: https://www.stylekorean.com:443/shop/pyunkang-yul-low-ph-scalp-treatment-500ml/1640046259/
+2025-05-30 12:11:38,631 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-quinoa-protein-treatment-mask-160ml/1629277363/
+2025-05-30 12:11:40,585 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-quinoa-protein-treatment-mask-160ml/1629277363/
+2025-05-30 12:11:41,588 - INFO - [FETCH] https://www.stylekorean.com:443/shop/some-by-mi-renewal-cica-peptide-anti-hair-loss-derma-scalp-treatment-50ml/1605163613/
+2025-05-30 12:11:44,763 - INFO - Fetched: https://www.stylekorean.com:443/shop/some-by-mi-renewal-cica-peptide-anti-hair-loss-derma-scalp-treatment-50ml/1605163613/
+2025-05-30 12:11:45,773 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-collagen-ceramide-coating-protein-treatment-100ml/1712028169/
+2025-05-30 12:11:48,303 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-collagen-ceramide-coating-protein-treatment-100ml/1712028169/
+2025-05-30 12:11:49,315 - INFO - [DONE] Saved final data: stylekorean/data/product_details/hair_care_sub_categories/Hair_Treatment__25_.json

@@ -1,6 +1,6 @@
 'use client'
 
-import Button from '@/components/ui/xbutton/base'
+import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 
 interface NewsletterFormProps {
@@ -45,7 +45,7 @@ export default function NewsletterForm({
             className="flex-1 px-4 py-2 border rounded-md"
             required
           />
-          <Button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md">
+          <Button type="submit" className="px-4 py-2 rounded-md">
             {buttonText}
           </Button>
         </form>

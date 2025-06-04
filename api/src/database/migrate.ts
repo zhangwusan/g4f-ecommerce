@@ -6,11 +6,13 @@ import SequelizeConfig from '@/config/sequelize.config';
 // ================================================================>> Custom Library
 
 class MigrationInitializer {
-    
+
     private sequelize: Sequelize;
 
     constructor() {
-        this.sequelize = new Sequelize(SequelizeConfig);
+        this.sequelize = new Sequelize({
+            ...SequelizeConfig,
+        });
     }
 
     private async confirmMigration(): Promise<boolean> {

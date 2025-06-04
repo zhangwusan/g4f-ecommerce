@@ -5,6 +5,7 @@ import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import { extname } from "path";
 import { ChangeInfomationRequest, ChangePasswordRequest } from "./dto";
+import { ApiBearerAuth } from "@nestjs/swagger";
 
 @Controller()
 export class ProfileController {

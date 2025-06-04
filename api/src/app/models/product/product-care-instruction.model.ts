@@ -1,12 +1,13 @@
 import {
     Table, Column, Model, ForeignKey, DataType,
+    BelongsTo,
   } from 'sequelize-typescript';
   import Product from './product.model';
   import CareInstruction from './care-instruction.model';
+import User from '../user/user.model';
   
   @Table({
     tableName: 'product_care_instructions',
-    timestamps: false,
   })
   class ProductCareInstruction extends Model<ProductCareInstruction> {
     @ForeignKey(() => Product)

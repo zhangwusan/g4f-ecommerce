@@ -6,7 +6,10 @@ import { UserPayload } from "@/app/common/interfaces/jwt.interface";
 import User from "@/app/models/user/user.model";
 import sequelizeConfig from "@/config/sequelize.config";
 import { BadRequestException, Injectable } from "@nestjs/common";
-import { Sequelize } from "sequelize";
+import { BLOB, Op, Sequelize } from "sequelize";
+import Role from "@/app/models/user/role.model";
+import { LoginWithGoogle } from "./dto";
+import SocialUser from "@/app/models/user/social-users.model";
 
 @Injectable()
 export class AuthService {
@@ -30,6 +33,12 @@ export class AuthService {
                 where: {
                     email: body.email,
                 },
+                include: [
+                    {
+                        model: Role,
+                        attributes: ['id', 'name']
+                    }
+                ]
             });
             if (!user) {
                 throw new BadRequestException("Maybe user not found or password is incorrect");
@@ -47,6 +56,16 @@ export class AuthService {
                 avatar: user.avatar,
                 email: user.email,
                 role: user.role_id,
+                role_name: user.role.name,
+                is_2fa: user.isTwoFactorEnabled,
+            }
+
+            if (user.isTwoFactorEnabled) {
+                const payload = { id: user.id, is_2fa: true }; // Temp token
+                return {
+                    requires2FA: true,
+                    tempToken: this._jwt_service.signTempAccessToken(payload, { expiresIn: '1d' }),
+                };
             }
 
             // sign access token and refresh token
@@ -71,6 +90,93 @@ export class AuthService {
         // if user not found, throw error
     }
 
+    async google(body: LoginWithGoogle) {
+        const sequelize = new Sequelize(sequelizeConfig);
+        const transaction = await sequelize.transaction();
+
+        try {
+            let social_user = await SocialUser.findOne({ where: { provider: 'google', provider_id: body.sub } });
+
+            if (!social_user) {
+                social_user = await SocialUser.create({
+                    provider: 'google',
+                    provider_id: body.sub,
+                });
+            }
+
+            let user = await User.findOne({
+                where: {
+                    [Op.or]: {
+                        social_user_id: social_user.id,
+                        email: body.email
+                    }
+                },
+                transaction,
+            });
+
+            if (!user) {
+                user = await User.create(
+                    {
+                        first_name: body.first_name,
+                        last_name: body.last_name,
+                        username: body.username,
+                        email: body.email,
+                        avatar: body.avatar,
+                        role_id: RoleEnum.USER,
+                        social_user_id: social_user.id,
+                        password: null,
+                    },
+                    { transaction }
+                );
+            }
+
+            const role = await Role.findOne({
+                attributes: ['id', 'name'],
+                where: {
+                    id: user.role_id
+                },
+                transaction,
+            })
+            // prepare payload
+            const payload: UserPayload = {
+                id: user.id,
+                username: user.username,
+                avatar: user.avatar,
+                email: user.email,
+                role: user.role_id,
+                role_name: role.name,
+                is_2fa: user.isTwoFactorEnabled
+            };
+
+            if (user.isTwoFactorEnabled) {
+                const payload = { id: user.id, is_2fa: true }; // Temp token
+                const tempToken = this._jwt_service.signTempAccessToken(payload, { expiresIn: '5m' });
+                return {
+                    requires2FA: true,
+                    tempToken
+                };
+            }
+
+            const access = this._jwt_service.signAccessToken(payload);
+            const refresh = this._jwt_service.signRefreshToken(payload);
+
+            await transaction.commit();
+
+            return {
+                message: "Login successfully",
+                user: payload,
+                token: {
+                    access: access,
+                    refresh: refresh
+                },
+                access_expires_in: this._jwt_service.getExpiresIn()
+            };
+        } catch (error) {
+            console.log(error)
+            await transaction.rollback();
+            throw new BadRequestException(error.message || 'Fail');
+        }
+    }
 
     /**
      * @description Register user
@@ -116,13 +222,24 @@ export class AuthService {
 
             await transaction.commit();
 
+            const u = await User.findByPk(new_user.id, {
+                include: [
+                    {
+                        model: Role,
+                        attributes: ['id', 'name']
+                    }
+                ]
+            })
+
             // prepare payload
             const payload: UserPayload = {
-                id: new_user.id,
-                username: new_user.username,
-                avatar: new_user.avatar,
-                email: new_user.email,
-                role: new_user.role_id,
+                id: u.id,
+                username: u.username,
+                avatar: u.avatar,
+                email: u.email,
+                role: u.role_id,
+                role_name: u.role.name,
+                is_2fa: u.isTwoFactorEnabled
             }
 
             // sign token

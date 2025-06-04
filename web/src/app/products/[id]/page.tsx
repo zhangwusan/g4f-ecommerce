@@ -1,5 +1,5 @@
 'use client';
-import ProductDetailClient from '@/components/ui/product/detail';
+import ProductDetailClient from '@/components/section/product/detail';
 import { ProductDetailResponse } from '@/lib/type/product.interface';
 import { use, useEffect, useState } from 'react';
 

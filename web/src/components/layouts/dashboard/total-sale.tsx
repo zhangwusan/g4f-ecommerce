@@ -38,7 +38,7 @@ export function TotalSale({
         {
             category: 'sales',
             sales: amount,
-            fill: 'var(--color-sales)',
+            fill: 'hsl(var(--chart-1))',
         },
     ]
 
@@ -48,7 +48,7 @@ export function TotalSale({
         },
         totalSales: {
             label: 'Total Sales',
-            color: 'hsl(var(--chart-2))',
+            color: 'hsl(var(--chart-1))',
         },
     } satisfies ChartConfig
 
@@ -68,7 +68,6 @@ export function TotalSale({
                         endAngle={100}
                         innerRadius={80}
                         outerRadius={140}
-                        className='first:fill-blue-500'
                     >
                         <PolarGrid
                             gridType="circle"
@@ -92,7 +91,7 @@ export function TotalSale({
                                                 <tspan
                                                     x={viewBox.cx}
                                                     y={viewBox.cy}
-                                                    className="fill-foreground text-3xl font-bold"
+                                                    className="fill-foreground text-2xl font-bold"
                                                 >
                                                     ${amount.toLocaleString()}
                                                 </tspan>

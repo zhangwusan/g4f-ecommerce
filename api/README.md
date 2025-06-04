@@ -1,99 +1,328 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# g4f-shop API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A RESTful API backend for the **g4f-shop** e-commerce platform, built to handle product management, user authentication, orders, and more.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+------------------------------------------------------------------------
 
-## Description
+## Table of Contents
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+-   [Overview](#overview)
+-   [Features](#features)
+-   [Tech Stack](#tech-stack)
+-   [Getting Started](#getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation](#installation)
+    -   [Environment Variables](#environment-variables)
+    -   [Running the API](#running-the-api)
+-   [API Endpoints](#api-endpoints)
+-   [Authentication](#authentication)
+-   [Error Handling](#error-handling)
+-   [Testing](#testing)
+-   [Contributing](#contributing)
+-   [License](#license)
+-   [Contact](#contact)
 
-## Project setup
+------------------------------------------------------------------------
 
+## Overview {#overview}
+---
+
+The **g4f-shop API** is a RESTful backend service designed to power a full-featured e-commerce platform. It handles:
+
+-   User authentication and profile management
+-   Product catalog browsing and management
+-   Category management for organizing products
+-   Shopping cart and order processing
+-   Role-based access control for customers and admins
+-   Pagination, sorting, and filtering for efficient data retrieval
+-   Secure and scalable API design with validation and error handling
+
+This backend serves as the core foundation for frontend applications, providing flexible and secure endpoints to support all typical e-commerce workflows.
+
+------------------------------------------------------------------------
+
+## Features {#features}
+---
+
+### User Authentication
+
+-   Traditional email and password authentication
+-   OAuth login via Google
+-   JWT-based session management with access and refresh tokens
+-   Optional two-factor authentication (2FA) for enhanced security
+-   User profile management including avatar uploads and password changes
+
+------------------------------------------------------------------------
+
+### Product Management
+
+The g4f-shop API provides comprehensive endpoints for managing products, supporting both customer-facing queries and full admin control.
+
+### Category Management
+
+Full category CRUD and filtering functionality, enabling organization and retrieval of product categories, with support for pagination and sorting.
+
+------------------------------------------------------------------------
+
+### Additional Features
+---
+
+-   Shopping cart management
+-   Order processing and history
+-   Pagination, sorting, and filtering support
+-   Role-based access control (e.g., admin vs. customer)
+-   RESTful API design
+-   Validation and error handling
+-   Payment & Sales Report Generation
+
+------------------------------------------------------------------------
+
+## Tech Stack {#tech-stack}
+---
+
+-   Node.js
+-   NestJS
+-   Sequelize (ORM)
+-   Redis
+-   PostgreSQL
+-   JWT for authentication
+-   Class Validation
+-   Dockerfile
+
+------------------------------------------------------------------------
+
+## Getting Started {#getting-started}
+
+### Prerequisites {#prerequisites}
+
+-   Node.js (version 18.X or higher) for best compatibility and support.
+-   npm or yarn
+-   PostgreSQL (or other supported DB)
+
+### Installation {#installation}
 ```bash
-$ npm install
+git clone https://github.com/yourusername/g4f-shop-api.git 
+cd g4f-shop-api 
+npm install
 ```
 
-## Compile and run the project
-
+### Environment Variables {#environment-variables}
 ```bash
-# development
-$ npm run start
+# Application Port
+PORT=
 
-# watch mode
-$ npm run start:dev
+# Database Configuration
+DB_CONNECTION=postgres       # or mysql
+DB_HOST=
+DB_PORT=5432                 # default PostgreSQL port
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
 
-# production mode
-$ npm run start:prod
+# Redis Configuration
+REDIS_HOST=
+REDIS_PORT=6379
+REDIS_PASSWORD=
+
+# JWT Configuration
+JWT_SECRET=
+JWT_EXPIRES_IN=1h
+JWT_REFRESH_SECRET=
+JWT_REFRESH_EXPIRES_IN=7d
+
+# Stripe Secret Key
+STRIPE_SECRET_KEY=
+
+# Web Frontend URL
+WEB_BASE_URL=http://localhost:3000
 ```
 
-## Run tests
+### Running the API {#running-the-api}
+
+**1 Requirements**
+
+- Node.js: >=18.x (recommended for compatibility with NestJS v10 and puppeteer)
+- Package Manager: npm or yarn
+- Database: MySQL or PostgreSQL
+- Redis: (if using caching or rate limiting)
+- Stripe Account: For payment integration (optional)
+
+**2 Install Dependencies**
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
+# or
+yarn install
 ```
 
-## Deployment
+**3 Configure Environment Variables**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Create a .env file in the root of the project:
 
 ```bash
-$ npm install -g mau
-$ mau deploy
+# Copy and Edit enviroment on your configuration
+cp .env.example .env
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+**4 Run Migrations**
+```bash
+npm run migrate
+npm run seeder
+```
 
-## Resources
+**5 Start the API**
+```bash
+npm run start
+# or with watch mode
+npm run start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+## API Endpoints {#api-endpoints}
+---
+Below is the list of available API endpoints for authentication and user management.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+| Method | Endpoint         | Description        | Auth Required |
+|--------|------------------|--------------------|---------------|
+| GET    | `/users/profile` | Get user profile   | Yes           |
+| POST   | `/auth/login`    | Login              | No            |
+| POST   | `/auth/register` | Register new user  | No            |
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Authentication {#authentication}
+---
 
-## Stay in touch
+#### 📥 `POST /api/mx/v1/auth/login`
+Login a user and return an access token.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- **URL:** `/api/mx/v1/auth/login`
+- **Method:** `POST`
+- **Auth required:** No
 
-## License
+**Request Body:**
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```json
+{
+  "email": "admin@gmail.com",
+  "password": "admin@1234"
+}
+```
+
+**Response**
+```json
+{
+    "message": "Login successfully",
+    "user": {
+        "id": 1,
+        "username": "admin",
+        "avatar": "/public/static/avatar.jpg",
+        "email": "admin@gmail.com",
+        "role": 1,
+        "role_name": "admin",
+        "is_2fa": false
+    },
+    "token": {
+        "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9......",
+        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9......."
+    },
+    "access_expires_in": "2025-06-02T12:38:48.231Z"
+}
+```
+
+#### `GET /api/mx/v1/auth/profile`
+View Profile
+
+- **URL:** `/api/mx/v1/users/profile`
+- **Method:** `GET`
+- **Auth required:** `Yes (Bearer Token)`
+
+Headers
+```bash
+Authorization: Bearer <access_token>
+```
+**Response**
+```json
+{
+  "message": "Fetching data successfully.",
+  "data": {
+    "first_name": "admin",
+    "last_name": "admin",
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "phone_number": "0123456789",
+    "address": "123 Street, City",
+    "avatar": "/public/static/avatar.jpg",
+    "bio": null
+  }
+}
+```
+
+## Error Handling {#error-handling}
+---
+
+All API responses follow a consistent structure. In case of an error, the response will include an appropriate HTTP status code and a message.
+
+### Common Error Response Format
+
+```json
+{
+  "statusCode": 400,
+  "message": "Invalid email or password",
+  "error": "Bad Request"
+}
+```
+
+### Validation Error (422)
+
+```json
+{
+  "statusCode": 422,
+  "message": [
+    "Password must be at least 6 characters",
+    "Email must be a valid email address"
+  ],
+  "error": "Unprocessable Entity"
+}
+```
+
+### Unauthorized (401)
+```json
+{
+  "statusCode": 401,
+  "message": "Unauthorized access",
+  "error": "Unauthorized"
+}
+```
+
+## Testing {#testing}
+---
+
+To test the API:
+1. Install dependencies: `npm install`
+2. Create a .env file from .env.example and configure it.
+3. Run the application: `npm run start:dev`
+4. Use tools like Postman or Insomnia to test the endpoints.
+
+## Contributing {#contributing}
+---
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+	1.	Fork the repository
+	2.	Create a new branch (git checkout -b feature/my-feature)
+	3.	Commit your changes (git commit -am 'Add new feature')
+	4.	Push to the branch (git push origin feature/my-feature)
+	5.	Open a pull request
+
+## License {#license}
+---
+
+This project is licensed under the [MIT License](./LICENSE).
+
+## Contact {#contact}
+---
+
+For questions or support, please contact:
+
+- Developer: `Wusan`
+- Email: `zhangwusan1@gmail.com`
+- Telegram: `Zhangwusan123_32_1`

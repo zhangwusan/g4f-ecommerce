@@ -12,6 +12,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const router = useRouter();
+  const [subtotal, setSubtotal] = useState(0);
+  const [shippingFee, setShippingFee] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const fetchCart = async () => {
     if (!session) return;
@@ -32,10 +35,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const addToCart = async (item: AddCartItem) => {
-    if (!session) {
-      router.push('/auth/login');
-      return
-    };
+    if (session?.error === "RefreshAccessTokenError") {
+      router.push("/auth/login");
+      return;
+    }
 
     try {
       const res = await fetch('/api/cart', {
@@ -120,7 +123,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       await fetchCart();
     } catch (err: any) {
-      setError(err.message || 'Unexpected error');
+      setError(err.error || 'Unexpected error');
     } finally {
       setLoading(false);
     }
@@ -132,8 +135,28 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [status, session]);
 
+  useEffect(() => {
+    const calculatedSubtotal = cart.reduce(
+      (sum, item) => sum + (item.discount_price * item.quantity),
+      0
+    );
+    setSubtotal(calculatedSubtotal);
+    setTotal(calculatedSubtotal + shippingFee);
+  }, [cart, shippingFee]);
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, updateQuantity, fetchCart, clearCartAndUpdateProduct }}>
+    <CartContext.Provider value={{
+      cart,
+      addToCart,
+      removeFromCart,
+      clearCart,
+      updateQuantity,
+      fetchCart,
+      clearCartAndUpdateProduct,
+      subtotal,
+      shippingFee,
+      total,
+    }}>
       {children}
     </CartContext.Provider>
   );

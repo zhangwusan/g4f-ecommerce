@@ -1,10 +1,11 @@
 'use client';
 
-import Form from '@/components/ui/form/generic-form';
-import InputArea from '@/components/ui/input-box/input-area';
-import InputField from '@/components/ui/input-box/input-field';
-import { ProfileResponse } from '@/lib/type/profile.interface';
 import React from 'react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { ProfileResponse } from '@/lib/type/profile.interface';
 
 interface ProfileFormProps {
   editableProfile: ProfileResponse;
@@ -14,71 +15,99 @@ interface ProfileFormProps {
 
 const ProfileForm: React.FC<ProfileFormProps> = ({ editableProfile, onChange, onSubmit }) => {
   return (
-    <Form onSubmit={onSubmit} name_button="Save Profile">
-
+    <form onSubmit={onSubmit} className="space-y-6">
       <div>
         <h3 className="text-xl font-semibold mb-2">Profile Information</h3>
-        <InputField
-          label="First Name"
-          name="first_name"
-          value={editableProfile.first_name}
-          onChange={onChange}
-          required
-        />
-        <InputField
-          label="Last Name"
-          name="last_name"
-          value={editableProfile.last_name}
-          onChange={onChange}
-          required
-        />
-        <InputField
-          label="Username"
-          name="username"
-          value={editableProfile.username}
-          onChange={onChange}
-          required
-        />
+        <div className="grid gap-4">
+          <div>
+            <Label htmlFor="first_name">First Name</Label>
+            <Input
+              id="first_name"
+              name="first_name"
+              value={editableProfile.first_name}
+              onChange={onChange}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="last_name">Last Name</Label>
+            <Input
+              id="last_name"
+              name="last_name"
+              value={editableProfile.last_name}
+              onChange={onChange}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="username">Username</Label>
+            <Input
+              id="username"
+              name="username"
+              value={editableProfile.username}
+              onChange={onChange}
+              required
+            />
+          </div>
+        </div>
       </div>
 
       <div>
         <h3 className="text-xl font-semibold mb-2">Contact Info</h3>
-        <InputField
-          label="Email"
-          name="email"
-          type="email"
-          disabled
-          value={editableProfile.email}
-          onChange={onChange}
-          className=' disabled:bg-gray-400'
-          required
-        />
-        <InputField
-          label="Phone"
-          name="phone_number"
-          value={editableProfile.phone_number || ''}
-          onChange={onChange}
-        />
-        <InputField
-          label="Address"
-          name="address"
-          value={editableProfile.address || ''}
-          onChange={onChange}
-        />
+        <div className="grid gap-4">
+          <div>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={editableProfile.email}
+              onChange={onChange}
+              disabled
+              className="disabled:opacity-60"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="phone_number">Phone</Label>
+            <Input
+              id="phone_number"
+              name="phone_number"
+              value={editableProfile.phone_number || ''}
+              onChange={onChange}
+            />
+          </div>
+          <div>
+            <Label htmlFor="address">Address</Label>
+            <Input
+              id="address"
+              name="address"
+              value={editableProfile.address || ''}
+              onChange={onChange}
+            />
+          </div>
+        </div>
       </div>
 
       <div>
         <h3 className="text-xl font-semibold mb-2">About User</h3>
-        <InputArea
-          label="Bio"
-          name="bio"
-          value={editableProfile.bio || ''}
-          onChange={onChange}
-          placeholder="Tell us about yourself..."
-          rows={4}
-        />
+        <div>
+          <Label htmlFor="bio">Bio</Label>
+          <Textarea
+            id="bio"
+            name="bio"
+            placeholder="Tell us about yourself..."
+            value={editableProfile.bio || ''}
+            onChange={onChange}
+            rows={4}
+          />
+        </div>
       </div>
-    </Form>
+
+      <Button type="submit" className="w-full">
+        Save Profile
+      </Button>
+    </form>
   );
 };
 

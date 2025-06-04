@@ -10,7 +10,8 @@ import { Sequelize, Transaction } from 'sequelize';
 import { AddToCartRequest } from './dto';
 import Color from '@/app/models/product/color.model';
 import Size from '@/app/models/product/size.model';
-import ProductImage from '@/app/models/product/images.model';
+import ProductImage from '@/app/models/product/product-images.model';
+import ProductVariant from '@/app/models/product/product-variants.model';
 
 @Injectable()
 export class UserCartService {
@@ -41,13 +42,26 @@ export class UserCartService {
         cart = await Cart.create({ user_id: user.id }, { transaction });
       }
 
+      // find variate for product
+      const product_variant = await ProductVariant.findOne({
+        where: {
+          product_id: product_id,
+          color_id: color,
+          size_id: size
+        }
+      })
+
+      console.log("Product variant : ", JSON.stringify(product_variant))
+
+      if (!product_variant) {
+        throw new BadRequestException("Error")
+      }
+
       // Check if item already exists in cart 
       const existingCartItem = await CartItem.findOne({
         where: {
           cart_id: cart.id,
-          product_id: product_id,
-          color_id: color,
-          size_id: size,
+          variant_id: product_variant.variant_id
         },
         transaction,
       });
@@ -59,11 +73,9 @@ export class UserCartService {
         // Add new cart item
         await CartItem.create({
           cart_id: cart.id,
-          product_id: product_id,
+          variant_id: product_variant.variant_id,
           quantity: quantity,
           discount: discount,
-          color_id: color,
-          size_id: size,
         }, { transaction });
       }
 
@@ -89,8 +101,8 @@ export class UserCartService {
           user_id: id
         }
       });
-      
-      if(!exist_cart) {
+
+      if (!exist_cart) {
         await Cart.create({
           user_id: id
         })
@@ -106,27 +118,33 @@ export class UserCartService {
             as: 'cart_items',
             include: [
               {
-                model: Product,
-                as: 'product',
-                attributes: ['product_id', 'product_name', 'price'],
+                model: ProductVariant,
+                as: "variant",
                 include: [
                   {
-                    model: ProductImage,
-                    as: 'images',
-                    attributes: ['image_url']
+                    model: Product,
+                    as: 'product',
+                    attributes: ['product_id', 'product_name', 'price'],
+                    include: [
+                      {
+                        model: ProductImage,
+                        as: 'images',
+                        attributes: ['image_url']
+                      }
+                    ]
+                  },
+                  {
+                    model: Color,
+                    as: 'color',
+                    attributes: ['name'],
+                  },
+                  {
+                    model: Size,
+                    as: 'size',
+                    attributes: ['name']
                   }
                 ]
               },
-              {
-                model: Color,
-                as: 'color',
-                attributes: ['name'],
-              },
-              {
-                model: Size,
-                as: 'size',
-                attributes: ['name']
-              }
             ]
           }
         ],
@@ -147,14 +165,15 @@ export class UserCartService {
       const cartItems: CartItemResponse[] = cart.cart_items.map((item) => {
         return {
           id: item.cart_item_id,
-          product_id: item.product.product_id,
-          name: item.product.product_name,
-          image: item.product.images[0].image_url || '',
-          price: item.product.price,
+          variant_id: item.variant_id,
+          name: item.variant.product.product_name,
+          image: item.variant.product.images[0].image_url || '',
+          price: item.variant.product.price,
           quantity: item.quantity,
+          discount_price: parseFloat((item.variant.product.price * ((1 - item.discount/100))).toString()),
           discount: item.discount,
-          color: item.color.name,
-          size: item.size.name,
+          color: item.variant.color.name,
+          size: item.variant.size.name,
           date: item.createdAt,
         }
       });

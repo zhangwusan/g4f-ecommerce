@@ -4,6 +4,7 @@ import {
     Model,
     ForeignKey,
     DataType,
+    BelongsTo,
   } from 'sequelize-typescript';
   import Product from './product.model';
   import Ingredient from './ingredient.model';
@@ -20,6 +21,7 @@ import {
     @ForeignKey(() => Ingredient)
     @Column({ type: DataType.INTEGER })
     ingredient_id!: number;
+
   }
   
   export default ProductIngredient;

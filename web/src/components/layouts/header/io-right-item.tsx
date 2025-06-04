@@ -4,6 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { Moon, Sun, User, ShoppingCart } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 type RightItem = {
   label: string
@@ -20,6 +21,11 @@ type Props = {
 
 export default function RightItems({ session, cart, isMobile = false }: Props) {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const rightItems: RightItem[] = [
     {
@@ -33,10 +39,14 @@ export default function RightItems({ session, cart, isMobile = false }: Props) {
       icon: <ShoppingCart size={18} />,
     },
     {
-      label: theme === 'light' ? 'Light Mode' : 'Dark Mode',
+      label: mounted ? (theme === 'light' ? 'Dark Mode' : 'Light Mode') : 'Toggle Theme',
       href: '#',
-      icon: theme === 'light' ? <Moon size={18} /> : <Sun size={18} />,
-      onClick: () => setTheme(theme === 'light' ? 'dark' : 'light'),
+      icon: mounted
+        ? theme === 'light'
+          ? <Moon size={18} />
+          : <Sun size={18} />
+        : null,
+      onClick: () => mounted && setTheme(theme === 'light' ? 'dark' : 'light'),
     },
   ]
 
@@ -44,14 +54,14 @@ export default function RightItems({ session, cart, isMobile = false }: Props) {
     <div className={isMobile ? 'space-y-2' : 'flex items-center gap-4'}>
       {rightItems.map((item, i) =>
         item.onClick ? (
-          <button
+          <Button
             key={i}
             onClick={item.onClick}
             className="flex items-center gap-1 text-sm hover:underline"
           >
             {item.icon}
             <span>{item.label}</span>
-          </button>
+          </Button>
         ) : (
           <Link
             key={i}

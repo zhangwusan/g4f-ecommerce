@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Masks (549)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1010",
+    "children": [
+      {
+        "name": "Sheet Masks (270)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=101010"
+      },
+      {
+        "name": "Sleeping Masks (23)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=101020"
+      },
+      {
+        "name": "Pad (96)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=101030"
+      },
+      {
+        "name": "Patch (68)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=101040"
+      },
+      {
+        "name": "Wash off Masks (82)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=101050"
+      },
+      {
+        "name": "Nose Pack (4)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=101060"
+      }
+    ]
+  },
+  {
+    "name": "Moisturizer (1404)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1020",
+    "children": [
+      {
+        "name": "Toner (213)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102010"
+      },
+      {
+        "name": "Emulsion (47)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102020"
+      },
+      {
+        "name": "Essence & Serum (563)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102030"
+      },
+      {
+        "name": "Cream (405)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102040"
+      },
+      {
+        "name": "Face Mist & Fixer (26)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102050"
+      },
+      {
+        "name": "Oil (7)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102060"
+      },
+      {
+        "name": "Eye Cream (65)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102070"
+      },
+      {
+        "name": "Special Gift Sets (56)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102080"
+      },
+      {
+        "name": "For Men (4)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=102090"
+      }
+    ]
+  },
+  {
+    "name": "Cleanser (366)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1030",
+    "children": [
+      {
+        "name": "Cleansing Foam (214)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=103010"
+      },
+      {
+        "name": "Cleansing Oil & Water (76)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=103020"
+      },
+      {
+        "name": "Cleansing balm (35)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=103030"
+      },
+      {
+        "name": "Exfoliators (24)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=103040"
+      },
+      {
+        "name": "Makeup Remover (6)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=103050"
+      }
+    ]
+  },
+  {
+    "name": "Suncare (240)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1040",
+    "children": [
+      {
+        "name": "Sun Creams & Fluids (196)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=104010"
+      },
+      {
+        "name": "Sun Sticks & Cushions (37)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=104020"
+      }
+    ]
+  }
+]

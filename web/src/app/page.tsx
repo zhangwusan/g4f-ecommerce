@@ -63,7 +63,7 @@ const Home: React.FC = () => {
         <Banner.Item>🎁 Free Shipping</Banner.Item>
         <Banner.Item>💥 Limited Time Offer</Banner.Item>
       </Banner>
-
+      
       <HorizontalProductSection
         title="🔥 Best Deals"
         icon="🔥"

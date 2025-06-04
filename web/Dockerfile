@@ -1,5 +1,5 @@
 # Use full Node image with dev tools
-FROM node:22-alpine
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -7,7 +7,7 @@ WORKDIR /app
 RUN npm install -g next@latest
 # Copy package files and install all dependencies (including dev)
 COPY package*.json ./
-RUN npm install
+RUN npm install --force
 
 # Copy source code
 COPY . .

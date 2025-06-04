@@ -3,13 +3,13 @@
 import { useSession } from 'next-auth/react';
 import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { ProfileResponse } from '@/lib/type/profile.interface';
-import AvatarUploader from '@/components/ui/upload-profile';
+import AvatarUploader from '@/components/section/upload-profile';
 import ChangePasswordSection from '@/components/layouts/change-password';
 import ProfileForm from '@/components/layouts/update-profile';
+import { errorToast, successToast } from '@/components/layouts/toast';
 
 export default function ProfilePage() {
   const { data: session } = useSession();
-  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [profile, setProfile] = useState<ProfileResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -46,6 +46,7 @@ export default function ProfilePage() {
       if (!res.ok) throw new Error('Upload failed');
       const json = await res.json();
       setProfile((prev) => prev && { ...prev, avatar: json.avatar });
+      successToast('User profile update successfully')
     } catch (err) {
       console.error('Upload error:', err);
       setError('Failed to upload avatar.');
@@ -70,10 +71,10 @@ export default function ProfilePage() {
       if (!res.ok) throw new Error('Update failed');
       const json = await res.json();
       setProfile(json.data);
-      setToast({ message: 'Profile updated successfully!', type: 'success' });
-    } catch (err) {
+      successToast('User profile update successfully')
+    } catch (err: any) {
       console.error('Update error:', err);
-      setToast({ message: 'Failed to update profile.', type: 'error' });
+      errorToast(err.error || 'Failed to create product')
     } finally {
       setIsSubmitting(false);
     }

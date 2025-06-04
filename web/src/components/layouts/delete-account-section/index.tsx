@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from '@/components/ui/xbutton';
-import { ConfirmationModal } from '@/components/ui/confirm-model';
+import { ConfirmationModal } from '@/components/section/confirm-model';
+import { Button } from '@/components/ui/button';
 
 
 interface DeleteAccountProps {

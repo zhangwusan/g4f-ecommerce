@@ -8,13 +8,19 @@ import {
     ForeignKey,
     BelongsTo,
     DeletedAt,
+    HasMany,
 } from 'sequelize-typescript';
 import User from '../user/user.model';
+import OrderStatus from './order-status.model';
+import OrderItem from './order-item.model';
 
 @Table({
     tableName: 'orders',
     timestamps: true,
     paranoid: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+    deletedAt: 'deleted_at',
 })
 class Order extends Model<Order> {
     @Column({
@@ -54,26 +60,27 @@ class Order extends Model<Order> {
     })
     shipping_address!: string;
 
+    @ForeignKey(() => OrderStatus)
     @Column({
-        type: DataType.STRING(50),
+        type: DataType.INTEGER,
         allowNull: false,
-        field: 'order_status',
+        field: 'order_status_id',
     })
-    order_status!: string;
+    order_status_id!: number;
+
+    @BelongsTo(() => OrderStatus)
+    order_status!: OrderStatus;
+
+    @HasMany(() => OrderItem)
+    order_items!: OrderItem[];
 
     // Associations
     @BelongsTo(() => User, { foreignKey: 'user_id' })
     user!: User;
 
-    // Timestamp
-    @CreatedAt
-    @Column({ field: 'created_at' })
-    created_at!: Date;
-
-    @UpdatedAt
-    @Column({ field: 'updated_at' })
-    updated_at!: Date;
-    @DeletedAt @Column({ field: 'deleted_at', }) deleted_at!: Date;
+    created_at: Date;
+    updated_at: Date;
+    deleted_at: Date;
 }
 
 export default Order;

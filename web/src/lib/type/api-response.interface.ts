@@ -1,5 +1,5 @@
 
-interface Pagination {
+export interface Pagination {
     current_page: number;
     page_size: number;
     total_items: number;
@@ -11,4 +11,23 @@ export interface ApiResponse<T = any> {
     data?: T;
     error?: string;
     pagination?: Pagination;
+}
+
+export interface FetchUserParams {
+  limit?: number;
+  page?: number;
+  sort?: string;
+  order?: 'asc' | 'desc';
+  search?: string;
+  filter?: Record<string, string | number>;
+}
+
+export interface BaseQuery {
+  page?: number;
+  limit?: number;
+  sort?: string;
+  order?: 'asc' | 'desc';
+  search?: string;
+  filter?: Record<string, string>;
+  tags?: string[];
 }

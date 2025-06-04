@@ -1,6 +1,8 @@
-import { Controller, Get, Param, Put, Query } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Put, Query, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common";
 import { ProductService } from "./service";
 import { UserDecorator, UserDecoratorType } from "@/app/common/decorators/user.decorator";
+import { BaseQueryDto } from "@/app/common/dto/base-query.dto";
+import { AnyFilesInterceptor, FileInterceptor } from "@nestjs/platform-express";
 
 @Controller()
 export class ProductController {
@@ -28,11 +30,21 @@ export class ProductController {
         return this._service.get_data(params);
     }
 
+
     @Get('/detail/:product_id')
     view(
         @Param('product_id') product_id: number,
     ) {
         return this._service.view(product_id);
+    }
+
+    @Post('search-with-text-and-images')
+    @UseInterceptors(FileInterceptor('image')) // if using multer
+    search_with_text_and_image(
+        @Query() query: BaseQueryDto,
+        @UploadedFile() image: Express.Multer.File
+    ) {
+        return this._service.search_with_text_and_image(query, image);
     }
 
     @Put('update_product_and_clean_cart')
@@ -41,4 +53,5 @@ export class ProductController {
     ) {
         return this._service.update_product_and_clean_cart(user);
     }
+
 }

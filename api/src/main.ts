@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import * as compression from 'compression';
 import * as expressHandlebars from 'express-handlebars';
 import * as express from 'express';
+import * as bodyParser from 'body-parser'
 import rateLimit from 'express-rate-limit';
 import { join } from "path";
 import { AllExceptionsFilter } from "./app/common/filters/http-exeception.filter";
@@ -16,7 +17,9 @@ class InitApplication {
 
   private async init() {
     try {
-      this.app = await NestFactory.create<NestExpressApplication>(AppModule);
+      this.app = await NestFactory.create<NestExpressApplication>(AppModule, {
+        bodyParser: false,
+      });
       this.configure_middleware();
       this.configure_views();
       this.configure_assets();
@@ -39,6 +42,10 @@ class InitApplication {
       max: 1000, // limit each IP to 100 requests per windowMs
       message: "Too many requests, please try again later.",
     }));
+    // boby parse
+    this.app.use(bodyParser.json({ limit: '10mb' }));
+    this.app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+
     // core
     this.app.enableCors({
       origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : '*',
@@ -63,7 +70,7 @@ class InitApplication {
     const hbs = expressHandlebars.create({
       extname: '.html',
       layoutsDir: join(__dirname, '..', 'src'),
-      defaultLayout: null
+      defaultLayout: null,
     });
     this.app.engine('html', hbs.engine);
     this.app.setViewEngine('html');
@@ -99,11 +106,17 @@ class InitApplication {
 
   public async run(port: number) {
     try {
-      await this.init();
+      await this.init(); // Initialize app once
+
+      // Start server
       await this.app.listen(port);
+
       this.logger.log(`\x1b[32mNest application running on: \x1b[34mhttp://localhost:${port}\x1b[37m`);
+      this.logger.log(`\x1b[36mSwagger Docs available at: \x1b[34mhttp://localhost:${port}/api-docs\x1b[37m`);
     } catch (error) {
-      this.logger.error(`\x1b[31mError starting the server: ${error.message}\x1b[0m`);
+      this.logger.error(
+        `\x1b[31mError starting the server: ${error.message}\x1b[0m`
+      );
       process.exit(1);
     }
   }

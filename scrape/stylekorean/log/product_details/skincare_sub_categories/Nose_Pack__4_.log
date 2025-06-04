@@ -1,0 +1,10 @@
+2025-05-30 12:19:08,525 - INFO - Processing: stylekorean/data/product_urls/skincare_sub_categories/Nose_Pack__4_.json
+2025-05-30 12:19:08,530 - INFO - [FETCH] https://www.stylekorean.com:443/shop/ilso-natural-mild-clear-nose-pack-5ea/1716254563/
+2025-05-30 12:19:10,124 - INFO - Fetched: https://www.stylekorean.com:443/shop/ilso-natural-mild-clear-nose-pack-5ea/1716254563/
+2025-05-30 12:19:11,132 - INFO - [FETCH] https://www.stylekorean.com:443/shop/a-pieu-goblin-blackhead-3-step-nose-pack/1606794784/
+2025-05-30 12:19:14,021 - INFO - Fetched: https://www.stylekorean.com:443/shop/a-pieu-goblin-blackhead-3-step-nose-pack/1606794784/
+2025-05-30 12:19:15,028 - INFO - [FETCH] https://www.stylekorean.com:443/shop/cnp-laboratory-anti-pore-black-head-clear-kit-10-set/1729584415/
+2025-05-30 12:19:16,713 - INFO - Fetched: https://www.stylekorean.com:443/shop/cnp-laboratory-anti-pore-black-head-clear-kit-10-set/1729584415/
+2025-05-30 12:19:17,720 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-black-head-3-step-solution/1484727136/
+2025-05-30 12:19:19,557 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-black-head-3-step-solution/1484727136/
+2025-05-30 12:19:20,562 - INFO - [DONE] Saved final data: stylekorean/data/product_details/skincare_sub_categories/Nose_Pack__4_.json

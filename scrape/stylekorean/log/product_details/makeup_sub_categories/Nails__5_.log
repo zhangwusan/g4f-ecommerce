@@ -1,0 +1,12 @@
+2025-05-30 15:03:29,210 - INFO - Processing: stylekorean/data/product_urls/makeup_sub_categories/Nails__5_.json
+2025-05-30 15:03:29,212 - INFO - [FETCH] https://www.stylekorean.com:443/shop/impress-press-on-manicure-alluring/1702278001/
+2025-05-30 15:03:30,932 - INFO - Fetched: https://www.stylekorean.com:443/shop/impress-press-on-manicure-alluring/1702278001/
+2025-05-30 15:03:31,938 - INFO - [FETCH] https://www.stylekorean.com:443/shop/impress-press-on-manicure-climb-up/1702279637/
+2025-05-30 15:03:33,692 - INFO - Fetched: https://www.stylekorean.com:443/shop/impress-press-on-manicure-climb-up/1702279637/
+2025-05-30 15:03:34,698 - INFO - [FETCH] https://www.stylekorean.com:443/shop/impress-press-on-manicure-i-m-not-a-cinna/1702279860/
+2025-05-30 15:03:36,306 - INFO - Fetched: https://www.stylekorean.com:443/shop/impress-press-on-manicure-i-m-not-a-cinna/1702279860/
+2025-05-30 15:03:37,312 - INFO - [FETCH] https://www.stylekorean.com:443/shop/edgeu-primadonna-nail-strips/1676509002/
+2025-05-30 15:03:39,202 - INFO - Fetched: https://www.stylekorean.com:443/shop/edgeu-primadonna-nail-strips/1676509002/
+2025-05-30 15:03:40,208 - INFO - [FETCH] https://www.stylekorean.com:443/shop/edgeu-red-blanket-check-nail-strips/1676012200/
+2025-05-30 15:03:41,857 - INFO - Fetched: https://www.stylekorean.com:443/shop/edgeu-red-blanket-check-nail-strips/1676012200/
+2025-05-30 15:03:42,864 - INFO - [DONE] Saved final data: stylekorean/data/product_details/makeup_sub_categories/Nails__5_.json

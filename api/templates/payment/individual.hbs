@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>G4F-SHOP Transaction Payment Report</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 15px; /* smaller margin */
+            color: #333;
+            background-color: #fafafa;
+            font-size: 12px; /* smaller base font */
+            line-height: 1.2;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #2c3e50;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 16px; /* smaller */
+            color: #2c3e50;
+            letter-spacing: 1px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: #0077cc;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-size: 18px; /* smaller */
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        section {
+            background: #fff;
+            padding: 10px 15px; /* smaller padding */
+            border-radius: 4px; /* smaller radius */
+            box-shadow: none; /* remove shadow for compactness */
+            margin-bottom: 15px;
+        }
+
+        section h2 {
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 14px; /* smaller */
+        }
+
+        p {
+            margin: 3px 0;
+            font-size: 11px; /* smaller */
+            line-height: 1.2;
+        }
+
+        p strong {
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px; /* smaller */
+            color: #4a5568;
+        }
+
+        thead tr {
+            background-color: #f1f5f9;
+            border-bottom: 1px solid #cbd5e0;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 6px 8px; /* smaller padding */
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+
+        th {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tbody tr:hover {
+            background-color: #f9fafb;
+        }
+
+        img.product-image {
+            max-width: 50px; /* smaller */
+            max-height: 50px;
+            border-radius: 4px;
+            object-fit: contain;
+            border: 1px solid #e2e8f0;
+            background-color: #fff;
+        }
+
+        .total {
+            font-weight: 700;
+            font-size: 13px; /* smaller */
+            color: #2c3e50;
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">G4F-<span>SHOP</span></div>
+        <h1>Transaction Payment Report</h1>
+    </header>
+
+    <section>
+        <h2>Payment Details</h2>
+        <p><strong>Method:</strong> {{payment_method}}</p>
+        <p><strong>Transaction ID:</strong> {{payment_transaction}}</p>
+        <p><strong>Amount:</strong> ${{payment_amount}}</p>
+        <p><strong>Status:</strong> {{payment_status}}</p>
+        <p><strong>Payment Date:</strong> {{payment_date}}</p>
+    </section>
+
+    <section>
+        <h2>Order Details</h2>
+        <p><strong>Order Date:</strong> {{order_date}}</p>
+        <p><strong>User:</strong> {{order_username}}</p>
+        <p><strong>Shipping Address:</strong> {{order_shipping_address}}</p>
+        <p><strong>Order Status:</strong> {{order_status}}</p>
+    </section>
+
+    <section>
+        <h2>Order Items Summary ({{order_items.length}} items)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item #</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Discount (%)</th>
+                    <th>price_at_purchase</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each order_items}}
+                <tr>
+                    <td>{{inc @index}}</td>
+                    <td>
+                        {{#if image}}
+                        <img class="product-image" src="{{image}}" alt="Product Image" />
+                        {{else}}N/A{{/if}}
+                    </td>
+                    <td>{{quantity}}</td>
+                    <td>${{price}}</td>
+                    <td>{{discount}}</td>
+                    <td>{{price_at_purchase}}</td>
+                    <td>${{multiply quantity price_at_purchase}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <p class="total">Total Amount: ${{order_total_amount}}</p>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+2025-05-29 22:29:14,300 - INFO - [START] Scraping: Body Lotion & Oils (44) → https://www.stylekorean.com/shop/list.php?ca_id=1210
+2025-05-29 22:29:18,934 - INFO - [DONE] Body Lotion & Oils (44) — saved 44 products to Body_Lotion___Oils__44_.json
+2025-05-29 22:29:18,941 - INFO - [START] Scraping: Body wash (28) → https://www.stylekorean.com/shop/list.php?ca_id=1220
+2025-05-29 22:29:22,790 - INFO - [DONE] Body wash (28) — saved 28 products to Body_wash__28_.json
+2025-05-29 22:29:22,796 - INFO - [START] Scraping: Body Scrub (2) → https://www.stylekorean.com/shop/list.php?ca_id=1230
+2025-05-29 22:29:25,467 - INFO - [DONE] Body Scrub (2) — saved 2 products to Body_Scrub__2_.json
+2025-05-29 22:29:25,472 - INFO - [START] Scraping: Hand & Foot & Oral Care (33) → https://www.stylekorean.com/shop/list.php?ca_id=1240
+2025-05-29 22:29:29,754 - INFO - [DONE] Hand & Foot & Oral Care (33) — saved 33 products to Hand___Foot___Oral_Care__33_.json
+2025-05-29 22:29:29,761 - INFO - [START] Scraping: Body Mist & Fragrance (11) → https://www.stylekorean.com/shop/list.php?ca_id=1250
+2025-05-29 22:29:33,064 - INFO - [DONE] Body Mist & Fragrance (11) — saved 11 products to Body_Mist___Fragrance__11_.json
+2025-05-29 22:32:28,088 - INFO - [SKIP] Body Lotion & Oils (44) — already exists: stylekorean/data/product_urls/body_care_sub_categories/Body_Lotion___Oils__44_.json
+2025-05-29 22:32:28,090 - INFO - [SKIP] Body wash (28) — already exists: stylekorean/data/product_urls/body_care_sub_categories/Body_wash__28_.json
+2025-05-29 22:32:28,092 - INFO - [SKIP] Body Scrub (2) — already exists: stylekorean/data/product_urls/body_care_sub_categories/Body_Scrub__2_.json
+2025-05-29 22:32:28,095 - INFO - [SKIP] Hand & Foot & Oral Care (33) — already exists: stylekorean/data/product_urls/body_care_sub_categories/Hand___Foot___Oral_Care__33_.json
+2025-05-29 22:32:28,097 - INFO - [SKIP] Body Mist & Fragrance (11) — already exists: stylekorean/data/product_urls/body_care_sub_categories/Body_Mist___Fragrance__11_.json

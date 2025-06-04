@@ -1,4 +1,4 @@
-import { MatchPasswordsConstraint } from '@/app/common/validator/match-password';
+import { MatchPasswords, MatchPasswordsConstraint } from '@/app/common/validator/match-password';
 import { IsString, MinLength, Matches, IsNotEmpty, Validate, IsOptional } from 'class-validator';
 
 export class ChangePasswordRequest {
@@ -15,7 +15,9 @@ export class ChangePasswordRequest {
 
   @IsString()
   @IsNotEmpty({ message: 'Confirm password is required' })
-  @Validate(MatchPasswordsConstraint)
+  @MatchPasswords('newPassword', {
+    message: 'Confirm password must match new password',
+  })
   confirmPassword: string;
 }
 
@@ -30,8 +32,8 @@ export class ChangeInfomationRequest {
   @IsNotEmpty()
   username: string;
   @IsString()
-  @IsNotEmpty()
-  phone: string;
+  @IsOptional()
+  phone?: string;
 
   @IsString()
   @IsOptional()

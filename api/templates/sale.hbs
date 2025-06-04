@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>{{title}}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Username</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+                <th>Shipping Address</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{payment_id}}</td>
+                <td>{{order_username}}</td>
+                <td>{{payment_amount}}</td>
+                <td>{{payment_method}}</td>
+                <td>{{payment_status}}</td>
+                <td>{{order_shipping_address}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import AsideCategories from '@/components/layouts/aside-categories';
-import ProductCard from '@/components/ui/product/list-product';
+import ProductCard from '@/components/section/product/list-product';
 import { ProductDisplayResponse } from '@/lib/type/product.interface';
 import { CategorySetupResponse } from '@/lib/type/categories.interface';
 import { ApiResponse } from '@/lib/type/api-response.interface';

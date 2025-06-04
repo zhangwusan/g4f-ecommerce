@@ -1,6 +1,5 @@
 import { JWT } from "next-auth/jwt";
 import { apiBaseUrlV1 } from "../constants/env";
-import { fetchWithToken } from "./fetch-with-token";
 
 export async function refreshAccessToken(token: JWT): Promise<JWT> {
   try {

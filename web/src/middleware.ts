@@ -25,7 +25,7 @@ export function middleware(req: NextRequest) {
   }
 }
 
-// Optional: separate authentication function for other middlewares to reuse
+
 export function authenticate(req: NextRequest) {
   const token =
     req.cookies.get('__Secure-next-auth.session-token')?.value ||

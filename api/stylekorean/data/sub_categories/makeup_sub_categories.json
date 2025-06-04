@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Face Makeup (181)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1110",
+    "children": [
+      {
+        "name": "Foundation (27)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=111010"
+      },
+      {
+        "name": "Makeup Base (21)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=111020"
+      },
+      {
+        "name": "Powder & Pact (13)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=111030"
+      },
+      {
+        "name": "Concealer (10)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=111040"
+      },
+      {
+        "name": "Cushion (64)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=111050"
+      },
+      {
+        "name": "Blusher & Highlighter (43)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=111060"
+      }
+    ]
+  },
+  {
+    "name": "Eye Makeup (85)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1120",
+    "children": [
+      {
+        "name": "Eyebrows (13)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=112010"
+      },
+      {
+        "name": "Eyeshadow (40)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=112020"
+      },
+      {
+        "name": "Eyeliner (11)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=112030"
+      },
+      {
+        "name": "Mascara (18)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=112040"
+      }
+    ]
+  },
+  {
+    "name": "Lip Makeup (224)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1130",
+    "children": [
+      {
+        "name": "Lip Stick (29)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=113010"
+      },
+      {
+        "name": "Lip Tint (88)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=113020"
+      },
+      {
+        "name": "Lip Gloss (25)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=113030"
+      },
+      {
+        "name": "Lip Care (82)",
+        "url": "https://www.stylekorean.com/shop/list.php?ca_id=113040"
+      }
+    ]
+  },
+  {
+    "name": "Nails (5)",
+    "url": "https://www.stylekorean.com/shop/list.php?ca_id=1140",
+    "children": []
+  }
+]

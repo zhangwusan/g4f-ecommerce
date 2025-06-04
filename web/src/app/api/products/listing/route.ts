@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
     const attachImageBase = (products: ProductDisplayResponse[]) =>
         products.map((product) => ({
             ...product,
-            images: product.images.map((image) => originalApiBaseUrl + image),
+            images: product.images.map((image) => image),
         }));
 
     return NextResponse.json({

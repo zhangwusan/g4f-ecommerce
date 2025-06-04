@@ -1,0 +1,4 @@
+2025-05-29 22:22:06,244 - INFO - [START] Scraping subcategories for Hair Care → https://www.stylekorean.com/shop/list.php?ca_id=13
+2025-05-29 22:22:08,524 - INFO - [DONE] Hair Care → Saved 4 subcategories to stylekorean/data/sub_categories/hair_care_sub_categories.json
+2025-05-29 22:32:36,519 - INFO - [SKIP] Hair Care → Already scraped and saved: stylekorean/data/sub_categories/hair_care_sub_categories.json
+2025-05-30 12:11:24,079 - INFO - [SKIP] Hair Care → Already scraped and saved: stylekorean/data/sub_categories/hair_care_sub_categories.json

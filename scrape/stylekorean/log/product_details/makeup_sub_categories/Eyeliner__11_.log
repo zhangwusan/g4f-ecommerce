@@ -1,0 +1,24 @@
+2025-05-30 15:20:21,355 - INFO - Processing: stylekorean/data/product_urls/makeup_sub_categories/Eyeliner__11_.json
+2025-05-30 15:20:21,357 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dearmay-crunchie-pop-slim-pen-eyeliner-2-colors/1744686183/
+2025-05-30 15:20:23,177 - INFO - Fetched: https://www.stylekorean.com:443/shop/dearmay-crunchie-pop-slim-pen-eyeliner-2-colors/1744686183/
+2025-05-30 15:20:24,183 - INFO - [FETCH] https://www.stylekorean.com:443/shop/clio-renewal-sharp-so-simple-waterproof-pencil-liner-7-colors/1731388461/
+2025-05-30 15:20:26,566 - INFO - Fetched: https://www.stylekorean.com:443/shop/clio-renewal-sharp-so-simple-waterproof-pencil-liner-7-colors/1731388461/
+2025-05-30 15:20:27,570 - INFO - [FETCH] https://www.stylekorean.com:443/shop/kaja-wink-stamp/1707190463/
+2025-05-30 15:20:30,173 - INFO - Fetched: https://www.stylekorean.com:443/shop/kaja-wink-stamp/1707190463/
+2025-05-30 15:20:31,174 - INFO - [FETCH] https://www.stylekorean.com:443/shop/peripera-speedy-pencil-liner-7-colors/1700723732/
+2025-05-30 15:20:33,932 - INFO - Fetched: https://www.stylekorean.com:443/shop/peripera-speedy-pencil-liner-7-colors/1700723732/
+2025-05-30 15:20:34,939 - INFO - [FETCH] https://www.stylekorean.com:443/shop/rom-nd-twinkle-pen-liner-5-colors/1694582279/
+2025-05-30 15:20:36,690 - INFO - Fetched: https://www.stylekorean.com:443/shop/rom-nd-twinkle-pen-liner-5-colors/1694582279/
+2025-05-30 15:20:37,697 - INFO - [FETCH] https://www.stylekorean.com:443/shop/etude-tear-eye-liner-3-colors/1671062943/
+2025-05-30 15:20:39,433 - INFO - Fetched: https://www.stylekorean.com:443/shop/etude-tear-eye-liner-3-colors/1671062943/
+2025-05-30 15:20:40,440 - INFO - [FETCH] https://www.stylekorean.com:443/shop/peripera-ink-thin-thin-brush-liner-2-colors/1653018894/
+2025-05-30 15:20:44,892 - INFO - Fetched: https://www.stylekorean.com:443/shop/peripera-ink-thin-thin-brush-liner-2-colors/1653018894/
+2025-05-30 15:20:45,896 - INFO - [FETCH] https://www.stylekorean.com:443/shop/clio-extreme-gelpresso-pencil-liner-4-colors/1737611545/
+2025-05-30 15:20:48,090 - INFO - Fetched: https://www.stylekorean.com:443/shop/clio-extreme-gelpresso-pencil-liner-4-colors/1737611545/
+2025-05-30 15:20:49,092 - INFO - [FETCH] https://www.stylekorean.com:443/shop/clio-superproof-pen-liner-3-colors/1634188777/
+2025-05-30 15:20:55,564 - INFO - Fetched: https://www.stylekorean.com:443/shop/clio-superproof-pen-liner-3-colors/1634188777/
+2025-05-30 15:20:56,571 - INFO - [FETCH] https://www.stylekorean.com:443/shop/clio-superproof-brush-liner-2-colors/1634183861/
+2025-05-30 15:20:58,322 - INFO - Fetched: https://www.stylekorean.com:443/shop/clio-superproof-brush-liner-2-colors/1634183861/
+2025-05-30 15:20:59,329 - INFO - [FETCH] https://www.stylekorean.com:443/shop/etude-oh-my-line-ad-3-colors/1640744058/
+2025-05-30 15:21:01,654 - INFO - Fetched: https://www.stylekorean.com:443/shop/etude-oh-my-line-ad-3-colors/1640744058/
+2025-05-30 15:21:02,660 - INFO - [DONE] Saved final data: stylekorean/data/product_details/makeup_sub_categories/Eyeliner__11_.json

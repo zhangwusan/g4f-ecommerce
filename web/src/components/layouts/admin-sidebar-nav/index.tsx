@@ -7,15 +7,17 @@ import {
     Users,
     Package,
     LucideIcon,
+    Settings,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export type IconKey = 'dashboard' | 'users' | 'products'
+export type IconKey = 'dashboard' | 'users' | 'products' | 'settings'
 
 const icons: Record<IconKey, LucideIcon> = {
     dashboard: LayoutDashboard,
     users: Users,
     products: Package,
+    settings: Settings
 }
 
 export type NavItem = {
@@ -39,7 +41,7 @@ export function AdminSidebarNav({ navLinks, className }: AdminSidebarNavProps) {
                 <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center font-bold text-sm">
                     G
                 </div>
-                <span className="text-lg font-semibold tracking-wide text-foreground">
+                <span className="text-lg font-semibold tracking-wide text-foreground text-nowrap">
                     G4F Admin
                 </span>
             </Link>

@@ -11,7 +11,11 @@ declare module "next-auth" {
       access_token?: string;
       refresh_token?: string;
       access_expires_in?: string;
+      role_name: string;
+      is_2fa: boolean;
+      is_2fa_verified?: boolean;
     };
+    error?: string;
   }
 
   interface User {
@@ -23,6 +27,21 @@ declare module "next-auth" {
     access_token?: string;
     refresh_token?: string;
     access_expires_in?: string;
+    role_name: string;
+    is_2fa: boolean;
+    is_2fa_verified?: boolean;
+  }
+
+  interface Profile extends DefaultProfile {
+    sub: string;
+    name: string;
+    email: string;
+    picture: string;
+    given_name?: string;
+    family_name?: string;
+    locale?: string;
+    email_verified?: boolean;
+    user: User
   }
 }
 
@@ -36,5 +55,9 @@ declare module "next-auth/jwt" {
     access_token?: string;
     refresh_token?: string;
     access_expires_in?: number | null;
+    role_name: string;
+    is_2fa: boolean;
+    is_2fa_verified?: boolean;
+    error?: string;
   }
 }

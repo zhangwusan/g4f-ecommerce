@@ -1,0 +1,78 @@
+2025-05-29 22:30:12,241 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Essence___Serum__18_.json
+2025-05-29 22:30:12,247 - INFO - [FETCH] https://www.stylekorean.com:443/shop/seapuri-scalpy-hair-serum-20ml/1747895040/
+2025-05-29 22:30:14,040 - INFO - Fetched: https://www.stylekorean.com:443/shop/seapuri-scalpy-hair-serum-20ml/1747895040/
+2025-05-29 22:30:15,046 - INFO - [FETCH] https://www.stylekorean.com:443/shop/vt-cosmetics-reedle-shot-hair-ampoule-100dl/1741937538/
+2025-05-29 22:30:17,145 - INFO - Fetched: https://www.stylekorean.com:443/shop/vt-cosmetics-reedle-shot-hair-ampoule-100dl/1741937538/
+2025-05-29 22:30:18,152 - INFO - [FETCH] https://www.stylekorean.com:443/shop/treecell-recovery-oil-essence-100ml/1739265272/
+2025-05-29 22:30:21,045 - INFO - Fetched: https://www.stylekorean.com:443/shop/treecell-recovery-oil-essence-100ml/1739265272/
+2025-05-29 22:30:22,049 - INFO - [FETCH] https://www.stylekorean.com:443/shop/purcell-pixcell-biomÔäó-tonic-for-hair-density-130ml/1738824765/
+2025-05-29 22:30:24,525 - INFO - Fetched: https://www.stylekorean.com:443/shop/purcell-pixcell-biomÔäó-tonic-for-hair-density-130ml/1738824765/
+2025-05-29 22:30:25,532 - INFO - [FETCH] https://www.stylekorean.com:443/shop/growus-damage-therapy-hair-oil-60ml/1732251771/
+2025-05-29 22:30:27,219 - INFO - Fetched: https://www.stylekorean.com:443/shop/growus-damage-therapy-hair-oil-60ml/1732251771/
+2025-05-29 22:30:28,223 - INFO - [FETCH] https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-scalp-essence-80ml/1721883789/
+2025-05-29 22:30:29,952 - INFO - Fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-scalp-essence-80ml/1721883789/
+2025-05-29 22:30:30,958 - INFO - [FETCH] https://www.stylekorean.com:443/shop/nature-republic-argan-essential-curling-essence-100ml/1702623269/
+2025-05-29 22:30:32,769 - INFO - Fetched: https://www.stylekorean.com:443/shop/nature-republic-argan-essential-curling-essence-100ml/1702623269/
+2025-05-29 22:30:33,776 - INFO - [FETCH] https://www.stylekorean.com:443/shop/unove-water-essence-mist-200ml/1699516985/
+2025-05-29 22:30:36,884 - INFO - Fetched: https://www.stylekorean.com:443/shop/unove-water-essence-mist-200ml/1699516985/
+2025-05-29 22:30:37,889 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-hair-muscle-essence-oil-100ml/1716509338/
+2025-05-29 22:30:41,707 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-hair-muscle-essence-oil-100ml/1716509338/
+2025-05-29 22:30:42,712 - INFO - [FETCH] https://www.stylekorean.com:443/shop/benton-honest-scalp-nourishing-tonic-ample/1674801436/
+2025-05-29 22:30:45,072 - INFO - Fetched: https://www.stylekorean.com:443/shop/benton-honest-scalp-nourishing-tonic-ample/1674801436/
+2025-05-29 22:30:46,079 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-a-muscle-essence-cer-100-150ml/1724813303/
+2025-05-29 22:30:48,759 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-a-muscle-essence-cer-100-150ml/1724813303/
+2025-05-29 22:30:49,764 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-cer-100-collagen-coating-hair-a-muscle-spray-250ml/1716862779/
+2025-05-29 22:30:52,272 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-cer-100-collagen-coating-hair-a-muscle-spray-250ml/1716862779/
+2025-05-29 22:30:53,279 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-lavender-patchouli-50ml/1638262352/
+2025-05-29 22:30:55,104 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-lavender-patchouli-50ml/1638262352/
+2025-05-29 22:30:56,110 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-tea-tree-purifying-tonic-100ml/1631521075/
+2025-05-29 22:30:58,580 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-tea-tree-purifying-tonic-100ml/1631521075/
+2025-05-29 22:30:59,587 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-quinoa-protein-hair-ampoule-100ml/1629278192/
+2025-05-29 22:31:01,259 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-quinoa-protein-hair-ampoule-100ml/1629278192/
+2025-05-29 22:31:02,264 - INFO - [FETCH] https://www.stylekorean.com:443/shop/aromatica-rosemary-root-enhancer-100ml/1629276763/
+2025-05-29 22:31:04,226 - INFO - Fetched: https://www.stylekorean.com:443/shop/aromatica-rosemary-root-enhancer-100ml/1629276763/
+2025-05-29 22:31:05,229 - INFO - [FETCH] https://www.stylekorean.com:443/shop/some-by-mi-renewal-cica-peptide-anti-hair-loss-derma-scalp-tonic-150ml/1605161652/
+2025-05-29 22:31:10,571 - INFO - Fetched: https://www.stylekorean.com:443/shop/some-by-mi-renewal-cica-peptide-anti-hair-loss-derma-scalp-tonic-150ml/1605161652/
+2025-05-29 22:31:11,577 - INFO - [FETCH] https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-collagen-coating-protein-ion-injection-50ml/1721097967/
+2025-05-29 22:31:13,741 - INFO - Fetched: https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-collagen-coating-protein-ion-injection-50ml/1721097967/
+2025-05-29 22:31:14,749 - INFO - [DONE] Saved final data: stylekorean/data/product_details/hair_care_sub_categories/Hair_Essence___Serum__18_.json
+2025-05-29 22:32:43,831 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Essence___Serum__18_.json
+2025-05-29 22:32:43,836 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/seapuri-scalpy-hair-serum-20ml/1747895040/
+2025-05-29 22:32:43,839 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/vt-cosmetics-reedle-shot-hair-ampoule-100dl/1741937538/
+2025-05-29 22:32:43,842 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-recovery-oil-essence-100ml/1739265272/
+2025-05-29 22:32:43,844 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/purcell-pixcell-biomÔäó-tonic-for-hair-density-130ml/1738824765/
+2025-05-29 22:32:43,847 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-damage-therapy-hair-oil-60ml/1732251771/
+2025-05-29 22:32:43,850 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-scalp-essence-80ml/1721883789/
+2025-05-29 22:32:43,852 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/nature-republic-argan-essential-curling-essence-100ml/1702623269/
+2025-05-29 22:32:43,855 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/unove-water-essence-mist-200ml/1699516985/
+2025-05-29 22:32:43,857 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-hair-muscle-essence-oil-100ml/1716509338/
+2025-05-29 22:32:43,859 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/benton-honest-scalp-nourishing-tonic-ample/1674801436/
+2025-05-29 22:32:43,861 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-a-muscle-essence-cer-100-150ml/1724813303/
+2025-05-29 22:32:43,864 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-cer-100-collagen-coating-hair-a-muscle-spray-250ml/1716862779/
+2025-05-29 22:32:43,866 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-lavender-patchouli-50ml/1638262352/
+2025-05-29 22:32:43,868 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-tea-tree-purifying-tonic-100ml/1631521075/
+2025-05-29 22:32:43,870 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-quinoa-protein-hair-ampoule-100ml/1629278192/
+2025-05-29 22:32:43,872 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-rosemary-root-enhancer-100ml/1629276763/
+2025-05-29 22:32:43,875 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/some-by-mi-renewal-cica-peptide-anti-hair-loss-derma-scalp-tonic-150ml/1605161652/
+2025-05-29 22:32:43,877 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-collagen-coating-protein-ion-injection-50ml/1721097967/
+2025-05-29 22:32:43,879 - INFO - [DONE] Saved final data: stylekorean/data/product_details/hair_care_sub_categories/Hair_Essence___Serum__18_.json
+2025-05-30 12:11:31,460 - INFO - Processing: stylekorean/data/product_urls/hair_care_sub_categories/Hair_Essence___Serum__18_.json
+2025-05-30 12:11:31,464 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/seapuri-scalpy-hair-serum-20ml/1747895040/
+2025-05-30 12:11:31,467 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/vt-cosmetics-reedle-shot-hair-ampoule-100dl/1741937538/
+2025-05-30 12:11:31,470 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/treecell-recovery-oil-essence-100ml/1739265272/
+2025-05-30 12:11:31,472 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/purcell-pixcell-biomÔäó-tonic-for-hair-density-130ml/1738824765/
+2025-05-30 12:11:31,475 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/growus-damage-therapy-hair-oil-60ml/1732251771/
+2025-05-30 12:11:31,478 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/dr.forhair-phyto-therapy-scalp-essence-80ml/1721883789/
+2025-05-30 12:11:31,480 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/nature-republic-argan-essential-curling-essence-100ml/1702623269/
+2025-05-30 12:11:31,483 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/unove-water-essence-mist-200ml/1699516985/
+2025-05-30 12:11:31,485 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-hair-muscle-essence-oil-100ml/1716509338/
+2025-05-30 12:11:31,487 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/benton-honest-scalp-nourishing-tonic-ample/1674801436/
+2025-05-30 12:11:31,489 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-collagen-coating-hair-a-muscle-essence-cer-100-150ml/1724813303/
+2025-05-30 12:11:31,492 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-cer-100-collagen-coating-hair-a-muscle-spray-250ml/1716862779/
+2025-05-30 12:11:31,494 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-ritual-hair-oil-lavender-patchouli-50ml/1638262352/
+2025-05-30 12:11:31,496 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-tea-tree-purifying-tonic-100ml/1631521075/
+2025-05-30 12:11:31,498 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-quinoa-protein-hair-ampoule-100ml/1629278192/
+2025-05-30 12:11:31,500 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/aromatica-rosemary-root-enhancer-100ml/1629276763/
+2025-05-30 12:11:31,502 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/some-by-mi-renewal-cica-peptide-anti-hair-loss-derma-scalp-tonic-150ml/1605161652/
+2025-05-30 12:11:31,504 - INFO - [SKIP] Already fetched: https://www.stylekorean.com:443/shop/elizavecca-milky-piggy-collagen-coating-protein-ion-injection-50ml/1721097967/
+2025-05-30 12:11:31,507 - INFO - [DONE] Saved final data: stylekorean/data/product_details/hair_care_sub_categories/Hair_Essence___Serum__18_.json

@@ -25,3 +25,8 @@ export interface CategoryWithProductsResponse {
     updated_at: string;
     products: ProductDisplayResponse[];
 }
+
+export interface CreateCategoryPayload {
+    category_name: string;
+    description: string;
+}

@@ -18,11 +18,8 @@ export async function GET(
       return NextResponse.json({ error: "Failed to fetch product" }, { status: response.status });
     }
 
-    const { data } : { data: ProductDetailResponse } = await response.json();
-    return NextResponse.json({
-      ...data,
-      images: data.images.map((image) => (originalApiBaseUrl + image))
-    });
+    const { data }: { data: ProductDetailResponse } = await response.json();
+    return NextResponse.json(data, { status: 201 });
   } catch (error) {
     console.error("Fetch error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

@@ -1,4 +1,4 @@
-import ProductCard from "@/components/ui/product/list-product";
+import ProductCard from "@/components/section/product/list-product";
 import { ProductDisplayResponse } from "@/lib/type/product.interface";
 import Link from "next/link";
 

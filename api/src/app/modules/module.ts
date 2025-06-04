@@ -9,6 +9,4 @@ import { V1Module } from "./v1/module";
     providers: [],
     exports: []
 })
-export class MxModules {
-    
-}
+export class MxModules {}

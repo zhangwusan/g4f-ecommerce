@@ -1,6 +1,6 @@
 
 import Role from "@/app/models/user/role.model";
-import { data } from "./data";
+import { data, generateUsers } from "./data";
 import User from "@/app/models/user/user.model";
 
 export class UserSeeder {
@@ -28,6 +28,9 @@ export class UserSeeder {
     private static async seedUsers() {
         try {
             await User.bulkCreate(data.user);
+            // // create more user
+            // const users =  generateUsers(100);
+            // await User.bulkCreate(users)
             console.log('\x1b[32mUser data inserted successfully.');
         } catch (error) {
             console.error('Error seeding users:', error);

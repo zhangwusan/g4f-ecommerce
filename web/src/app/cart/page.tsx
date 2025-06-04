@@ -1,8 +1,9 @@
 'use client';
 
-import BackButton from '@/components/ui/xbutton/back-btn';
-import Button from '@/components/ui/xbutton/base';
-import BaseInput from '@/components/ui/input-box';
+import { BackButton } from '@/components/section/back-btn';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import BaseInput from '@/components/section/input-box';
 import { useCart } from '@/context/cart';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -36,7 +37,7 @@ export default function CartPage() {
     router.push('/cart/checkout')
   };
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const total = cart.reduce((acc, item) => acc + item.discount_price * item.quantity, 0);
 
   if (loading) {
     return <div className="max-w-4xl mx-auto p-4 flex justify-center">No Items</div>;
@@ -67,25 +68,23 @@ export default function CartPage() {
                 />
                 <div>
                   <h2 className="text-lg font-semibold">{item.name}</h2>
-                  <p className="text-sm text-gray-500">${item.price}</p>
+                  <p className="text-sm text-gray-500">${parseFloat(item.discount_price.toString()).toFixed(2)}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-black dark:text-white">
-                <div className="flex items-center border rounded overflow-hidden border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+              <div className="flex items-center gap-4 ">
+                <div className="flex items-center border rounded overflow-hidden">
                   <Button
                     type="button"
                     onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
-                    className="px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    default_style={false}
+                    className="px-2 py-1"
                   >
                     {"-"}
                   </Button>
-                  <BaseInput
+                  <Input
                     type="number"
                     min="1"
                     value={item.quantity}
-                    default_style={false}
                     onChange={(e) =>
                       handleUpdateQuantity(item.id, parseInt(e.target.value))
                     }
@@ -94,8 +93,7 @@ export default function CartPage() {
                   <Button
                     type="button"
                     onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
-                    className="px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    default_style={false}
+                    className="px-2 py-1"
                   >
                     {"+"}
                   </Button>

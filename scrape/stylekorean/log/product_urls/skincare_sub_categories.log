@@ -1,0 +1,66 @@
+2025-05-29 22:23:01,891 - INFO - [START] Scraping: Sheet Masks (270) → https://www.stylekorean.com/shop/list.php?ca_id=101010
+2025-05-29 22:23:25,474 - INFO - [DONE] Sheet Masks (270) — saved 269 products to Sheet_Masks__270_.json
+2025-05-29 22:23:25,480 - INFO - [START] Scraping: Sleeping Masks (23) → https://www.stylekorean.com/shop/list.php?ca_id=101020
+2025-05-29 22:23:29,843 - INFO - [DONE] Sleeping Masks (23) — saved 23 products to Sleeping_Masks__23_.json
+2025-05-29 22:23:29,850 - INFO - [START] Scraping: Pad (96) → https://www.stylekorean.com/shop/list.php?ca_id=101030
+2025-05-29 22:23:39,491 - INFO - [DONE] Pad (96) — saved 96 products to Pad__96_.json
+2025-05-29 22:23:39,495 - INFO - [START] Scraping: Patch (68) → https://www.stylekorean.com/shop/list.php?ca_id=101040
+2025-05-29 22:23:48,074 - INFO - [DONE] Patch (68) — saved 68 products to Patch__68_.json
+2025-05-29 22:23:48,080 - INFO - [START] Scraping: Wash off Masks (82) → https://www.stylekorean.com/shop/list.php?ca_id=101050
+2025-05-29 22:23:56,820 - INFO - [DONE] Wash off Masks (82) — saved 82 products to Wash_off_Masks__82_.json
+2025-05-29 22:23:56,826 - INFO - [START] Scraping: Nose Pack (4) → https://www.stylekorean.com/shop/list.php?ca_id=101060
+2025-05-29 22:24:00,205 - INFO - [DONE] Nose Pack (4) — saved 4 products to Nose_Pack__4_.json
+2025-05-29 22:24:00,213 - INFO - [START] Scraping: Toner (213) → https://www.stylekorean.com/shop/list.php?ca_id=102010
+2025-05-29 22:24:18,967 - INFO - [DONE] Toner (213) — saved 213 products to Toner__213_.json
+2025-05-29 22:24:18,973 - INFO - [START] Scraping: Emulsion (47) → https://www.stylekorean.com/shop/list.php?ca_id=102020
+2025-05-29 22:24:24,360 - INFO - [DONE] Emulsion (47) — saved 47 products to Emulsion__47_.json
+2025-05-29 22:24:24,365 - INFO - [START] Scraping: Essence & Serum (563) → https://www.stylekorean.com/shop/list.php?ca_id=102030
+2025-05-29 22:25:11,061 - INFO - [DONE] Essence & Serum (563) — saved 562 products to Essence___Serum__563_.json
+2025-05-29 22:25:11,065 - INFO - [START] Scraping: Cream (405) → https://www.stylekorean.com/shop/list.php?ca_id=102040
+2025-05-29 22:25:43,384 - INFO - [DONE] Cream (405) — saved 405 products to Cream__405_.json
+2025-05-29 22:25:43,386 - INFO - [START] Scraping: Face Mist & Fixer (26) → https://www.stylekorean.com/shop/list.php?ca_id=102050
+2025-05-29 22:25:47,640 - INFO - [DONE] Face Mist & Fixer (26) — saved 26 products to Face_Mist___Fixer__26_.json
+2025-05-29 22:25:47,644 - INFO - [START] Scraping: Oil (7) → https://www.stylekorean.com/shop/list.php?ca_id=102060
+2025-05-29 22:25:50,951 - INFO - [DONE] Oil (7) — saved 7 products to Oil__7_.json
+2025-05-29 22:25:50,956 - INFO - [START] Scraping: Eye Cream (65) → https://www.stylekorean.com/shop/list.php?ca_id=102070
+2025-05-29 22:25:59,050 - INFO - [DONE] Eye Cream (65) — saved 65 products to Eye_Cream__65_.json
+2025-05-29 22:25:59,053 - INFO - [START] Scraping: Special Gift Sets (56) → https://www.stylekorean.com/shop/list.php?ca_id=102080
+2025-05-29 22:26:08,739 - INFO - [DONE] Special Gift Sets (56) — saved 65 products to Special_Gift_Sets__56_.json
+2025-05-29 22:26:08,746 - INFO - [START] Scraping: For Men (4) → https://www.stylekorean.com/shop/list.php?ca_id=102090
+2025-05-29 22:26:12,059 - INFO - [DONE] For Men (4) — saved 4 products to For_Men__4_.json
+2025-05-29 22:26:12,066 - INFO - [START] Scraping: Cleansing Foam (214) → https://www.stylekorean.com/shop/list.php?ca_id=103010
+2025-05-29 22:26:31,507 - INFO - [DONE] Cleansing Foam (214) — saved 214 products to Cleansing_Foam__214_.json
+2025-05-29 22:26:31,513 - INFO - [START] Scraping: Cleansing Oil & Water (76) → https://www.stylekorean.com/shop/list.php?ca_id=103020
+2025-05-29 22:26:40,384 - INFO - [DONE] Cleansing Oil & Water (76) — saved 76 products to Cleansing_Oil___Water__76_.json
+2025-05-29 22:26:40,389 - INFO - [START] Scraping: Cleansing balm (35) → https://www.stylekorean.com/shop/list.php?ca_id=103030
+2025-05-29 22:26:45,585 - INFO - [DONE] Cleansing balm (35) — saved 35 products to Cleansing_balm__35_.json
+2025-05-29 22:26:45,590 - INFO - [START] Scraping: Exfoliators (24) → https://www.stylekorean.com/shop/list.php?ca_id=103040
+2025-05-29 22:26:49,647 - INFO - [DONE] Exfoliators (24) — saved 24 products to Exfoliators__24_.json
+2025-05-29 22:26:49,653 - INFO - [START] Scraping: Makeup Remover (6) → https://www.stylekorean.com/shop/list.php?ca_id=103050
+2025-05-29 22:26:53,023 - INFO - [DONE] Makeup Remover (6) — saved 6 products to Makeup_Remover__6_.json
+2025-05-29 22:26:53,029 - INFO - [START] Scraping: Sun Creams & Fluids (196) → https://www.stylekorean.com/shop/list.php?ca_id=104010
+2025-05-29 22:27:12,850 - INFO - [DONE] Sun Creams & Fluids (196) — saved 196 products to Sun_Creams___Fluids__196_.json
+2025-05-29 22:27:12,855 - INFO - [START] Scraping: Sun Sticks & Cushions (37) → https://www.stylekorean.com/shop/list.php?ca_id=104020
+2025-05-29 22:27:18,509 - INFO - [DONE] Sun Sticks & Cushions (37) — saved 37 products to Sun_Sticks___Cushions__37_.json
+2025-05-29 22:32:25,994 - INFO - [SKIP] Sheet Masks (270) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Sheet_Masks__270_.json
+2025-05-29 22:32:25,996 - INFO - [SKIP] Sleeping Masks (23) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Sleeping_Masks__23_.json
+2025-05-29 22:32:25,998 - INFO - [SKIP] Pad (96) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Pad__96_.json
+2025-05-29 22:32:26,000 - INFO - [SKIP] Patch (68) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Patch__68_.json
+2025-05-29 22:32:26,002 - INFO - [SKIP] Wash off Masks (82) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Wash_off_Masks__82_.json
+2025-05-29 22:32:26,004 - INFO - [SKIP] Nose Pack (4) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Nose_Pack__4_.json
+2025-05-29 22:32:26,006 - INFO - [SKIP] Toner (213) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Toner__213_.json
+2025-05-29 22:32:26,008 - INFO - [SKIP] Emulsion (47) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Emulsion__47_.json
+2025-05-29 22:32:26,009 - INFO - [SKIP] Essence & Serum (563) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Essence___Serum__563_.json
+2025-05-29 22:32:26,011 - INFO - [SKIP] Cream (405) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Cream__405_.json
+2025-05-29 22:32:26,013 - INFO - [SKIP] Face Mist & Fixer (26) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Face_Mist___Fixer__26_.json
+2025-05-29 22:32:26,015 - INFO - [SKIP] Oil (7) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Oil__7_.json
+2025-05-29 22:32:26,016 - INFO - [SKIP] Eye Cream (65) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Eye_Cream__65_.json
+2025-05-29 22:32:26,018 - INFO - [SKIP] Special Gift Sets (56) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Special_Gift_Sets__56_.json
+2025-05-29 22:32:26,020 - INFO - [SKIP] For Men (4) — already exists: stylekorean/data/product_urls/skincare_sub_categories/For_Men__4_.json
+2025-05-29 22:32:26,021 - INFO - [SKIP] Cleansing Foam (214) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Cleansing_Foam__214_.json
+2025-05-29 22:32:26,023 - INFO - [SKIP] Cleansing Oil & Water (76) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Cleansing_Oil___Water__76_.json
+2025-05-29 22:32:26,024 - INFO - [SKIP] Cleansing balm (35) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Cleansing_balm__35_.json
+2025-05-29 22:32:26,026 - INFO - [SKIP] Exfoliators (24) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Exfoliators__24_.json
+2025-05-29 22:32:26,027 - INFO - [SKIP] Makeup Remover (6) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Makeup_Remover__6_.json
+2025-05-29 22:32:26,029 - INFO - [SKIP] Sun Creams & Fluids (196) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Sun_Creams___Fluids__196_.json
+2025-05-29 22:32:26,030 - INFO - [SKIP] Sun Sticks & Cushions (37) — already exists: stylekorean/data/product_urls/skincare_sub_categories/Sun_Sticks___Cushions__37_.json

@@ -1,173 +1,94 @@
-import {
-    Table,
-    Column,
-    Model,
-    DataType,
-    CreatedAt,
-    UpdatedAt,
-    ForeignKey,
-    BelongsTo,
-    DeletedAt,
-    HasMany,
-    BelongsToMany,
-} from 'sequelize-typescript';
-import Brand from '../brand/brand.model';
-import Category from '../category/category.model';
-import ProductImage from './images.model';
-import ProductTag from './product-tags.model';
-import Ingredient from './ingredient.model';
-import ProductIngredient from './product-ingredient.model';
-import CareInstruction from './care-instruction.model';
-import ProductCareInstruction from './product-care-instruction.model';
-import UsageInstruction from './usage-instruction.model';
-import ProductUsageInstruction from './product-usage-instruction.model';
-import Tag from './tag.model';
-import ProductVariant from './product-variants.model';
-
+import { BelongsTo, BelongsToMany, Column, CreatedAt, DataType, DeletedAt, ForeignKey, HasMany, HasOne, Model, Table, UpdatedAt } from "sequelize-typescript";
+import Brand from "../brand/brand.model";
+import Category from "../category/category.model";
+import ProductImage from "./product-images.model";
+import ProductVariant from "./product-variants.model";
+import Tag from "./tag.model";
+import Ingredient from "./ingredient.model";
+import CareInstruction from "./care-instruction.model";
+import UsageInstruction from "./usage-instruction.model";
+import ProductTag from "./product-tags.model";
+import ProductIngredient from "./product-ingredient.model";
+import ProductCareInstruction from "./product-care-instruction.model";
+import ProductUsageInstruction from "./product-usage-instruction.model";
+import User from "../user/user.model";
+import Label from "./label.model";
+import ProductLabel from "./product-label.model";
+import ProductDimension from "./dimension.model";
+import ProductRating from "./product-rating.model";
 
 @Table({
     tableName: 'products',
     timestamps: true,
     paranoid: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+    deletedAt: 'deleted_at',
 })
 class Product extends Model<Product> {
+    @Column({ primaryKey: true, autoIncrement: true }) product_id!: number;
+    @Column({ allowNull: false }) product_name!: string;
+    @Column({ allowNull: false }) slug!: string;
 
-    // Product Details
-    @Column({ primaryKey: true, autoIncrement: true, type: DataType.INTEGER })
-    product_id!: number;
-
-    @Column({ type: DataType.STRING(100), allowNull: false })
-    product_name!: string;
-
-    @Column({ type: DataType.STRING(255), allowNull: true, defaultValue: '/public/images/default-image.jpg' })
-    image_url!: string;
-
-    @Column({ type: DataType.STRING(50), allowNull: true })
-    skin_type!: string;
-
-    @Column({ type: DataType.INTEGER, allowNull: false, defaultValue: 0 })
-    stock_quantity!: number;
-
-    @Column({ type: DataType.STRING(150), unique: true, allowNull: false })
-    slug!: string;
-
-    @Column({ type: DataType.STRING(255), allowNull: true })
-    short_description!: string;
-
-    @Column({ type: DataType.TEXT, allowNull: true })
-    description!: string;
-
-    // Pricing
-    @Column({ type: DataType.DECIMAL(10, 2), allowNull: false })
+    @Column({ type: DataType.DECIMAL(10, 2), allowNull: false, defaultValue: 0 })
     price!: number;
 
     @Column({ type: DataType.DECIMAL(5, 2), allowNull: false, defaultValue: 0 })
     discount!: number;
 
+    @Column(DataType.TEXT) description!: string;
+    @Column(DataType.TEXT) short_description!: string;
 
-    // Ratings
-    @Column({ type: DataType.DECIMAL(3, 2), allowNull: true })
-    rating!: number;
+    @Column(DataType.DATE) manufacturing_date!: Date;
+    @Column(DataType.DATE) expiry_date!: Date;
 
-    @Column({ type: DataType.INTEGER, allowNull: true })
-    rating_count!: number;
-
-    // Inventory
-    @Column({ type: DataType.INTEGER, allowNull: false })
-    stock!: number;
-
-    @Column({
-        type: DataType.ENUM('in_stock', 'out_of_stock', 'preorder'),
-        allowNull: false,
-        defaultValue: 'in_stock'
-    })
-    availability_status!: 'in_stock' | 'out_of_stock' | 'preorder';
-
-    // Flags
-    @Column({ type: DataType.BOOLEAN, defaultValue: false })
-    is_featured!: boolean;
-
-    @Column({ type: DataType.BOOLEAN, defaultValue: false })
-    best_seller!: boolean;
-
-    @Column({ type: DataType.BOOLEAN, defaultValue: false })
-    new_arrival!: boolean;
-
-    // Ingredients & Expiration
-    @Column({ type: DataType.DATE, allowNull: true })
-    manufacturing_date!: Date;
-
-    @Column({ type: DataType.DATE, allowNull: true })
-    expiry_date!: Date;
-
-    // Physical Attributes
-    @Column({ type: DataType.STRING(50), allowNull: true })
-    weight!: string;
-
-    @Column({ type: DataType.STRING(50), allowNull: true })
-    width!: string;
-
-    @Column({ type: DataType.STRING(50), allowNull: true })
-    height!: string;
-
-    @Column({ type: DataType.STRING(50), allowNull: true })
-    depth!: string;
-
-    // Policies & Instructions
-    @Column({ type: DataType.TEXT, allowNull: true })
-    return_policy!: string;
-
-    // SEO Fields
-    @Column({ type: DataType.STRING(150), allowNull: true })
-    meta_title!: string;
-
-    @Column({ type: DataType.STRING(300), allowNull: true })
-    meta_description!: string;
+    @Column(DataType.TEXT) return_policy!: string;
 
     // Foreign Keys
-    @ForeignKey(() => Brand)
-    @Column({ type: DataType.INTEGER, allowNull: true })
-    brand_id!: number;
+    @ForeignKey(() => Brand) @Column brand_id!: number;
+    @ForeignKey(() => Category) @Column category_id!: number;
+    @ForeignKey(() => ProductDimension) @Column dimension_id!: number;
 
-    @ForeignKey(() => Category)
-    @Column({ type: DataType.INTEGER, allowNull: true })
-    category_id!: number;
+    // Relationships
+    @BelongsTo(() => Brand) brand!: Brand;
+    @BelongsTo(() => Category, { foreignKey: 'category_id', as: 'category' }) category!: Category;
+    @BelongsTo(() => ProductDimension) dimension!: ProductDimension;
 
-    // Associations
-    @BelongsTo(() => Brand, { foreignKey: 'brand_id' })
-    brand!: Brand;
+    @HasMany(() => ProductImage, { as: 'images', foreignKey: 'product_id' }) images!: ProductImage[];
+    @HasMany(() => ProductVariant) variants!: ProductVariant[];
+    @HasMany(() => ProductRating, { as: 'ratings', foreignKey: 'product_id' }) ratings!: ProductRating[];
+    @HasMany(() => ProductLabel) product_labels!: ProductLabel[];
 
-    @BelongsTo(() => Category, { foreignKey: 'category_id' })
-    category!: Category;
 
-    @HasMany(() => ProductImage, { foreignKey: 'product_id' })
-    images!: ProductImage[];
+    @BelongsToMany(() => Tag, () => ProductTag) tags!: Tag[];
+    @BelongsToMany(() => Ingredient, () => ProductIngredient) ingredients!: Ingredient[];
+    @BelongsToMany(() => CareInstruction, () => ProductCareInstruction) care_instructions!: CareInstruction[];
+    @BelongsToMany(() => UsageInstruction, () => ProductUsageInstruction) usage_instructions!: UsageInstruction[];
+    @BelongsToMany(() => Label, () => ProductLabel) labels!: Label[];
 
-    @BelongsToMany(() => Tag, () => ProductTag)
-    tags!: Tag[];
+    // User Tracking
+    @ForeignKey(() => User) @Column({ type: DataType.INTEGER, allowNull: true }) creator_id!: number;
+    @ForeignKey(() => User) @Column({ type: DataType.INTEGER, allowNull: true }) updater_id!: number;
+    @ForeignKey(() => User) @Column({ type: DataType.INTEGER, allowNull: true }) deleter_id!: number;
 
-    @HasMany(() => ProductVariant, { foreignKey: 'product_id' })
-    variants!: ProductVariant[];
+    @BelongsTo(() => User, { foreignKey: 'creator_id', as: 'creator' })
+    @BelongsTo(() => User, { foreignKey: 'updater_id', as: 'updater' })
+    @BelongsTo(() => User, { foreignKey: 'deleter_id', as: 'deleter' })
 
-    @BelongsToMany(() => Ingredient, () => ProductIngredient)
-    ingredients!: Ingredient[];
-
-    @BelongsToMany(() => CareInstruction, () => ProductCareInstruction)
-    care_instructions!: CareInstruction[];
-
-    @BelongsToMany(() => UsageInstruction, () => ProductUsageInstruction)
-    usage_instructions!: UsageInstruction[];
+    creator!: User;
+    updater!: User;
+    deleter!: User;
 
     // Timestamps
-    @CreatedAt
-    @Column({ field: 'created_at' })
-    created_at!: Date;
+    created_at: Date;
+    updated_at: Date;
+    deleted_at: Date;
 
-    @UpdatedAt
-    @Column({ field: 'updated_at' })
-    updated_at!: Date;
+    // use to
+    rating_avg: number;
+    rating_count: number;
+    stock_count: number;
 
-    @DeletedAt @Column({ field: 'deleted_at', }) deleted_at!: Date;
 }
 
 export default Product;

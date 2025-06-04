@@ -1,10 +1,12 @@
-import { IsEmail, IsNotEmpty, MinLength, Validate, ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
-import { Type } from 'class-transformer';
+import { IsEmail, IsNotEmpty, IsOptional, IsString, MinLength, Validate, ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class LoginDto {
+    @ApiProperty({ example: 'admin@gmail.com' })
     @IsEmail({}, { message: 'Invalid email format' })
     email: string;
 
+    @ApiProperty({ example: 'admin@1234' })
     @IsNotEmpty({ message: 'Password is required' })
     @MinLength(6, { message: 'Password must be at least 6 characters' })
     password: string;
@@ -49,4 +51,31 @@ export class RegisterDto {
 
     @IsNotEmpty({ message: 'Address is required' })
     address: string;
+}
+
+
+export class LoginWithGoogle {
+
+    @IsString()
+    sub: string;
+
+    @IsString()
+    @IsNotEmpty()
+    username: string;
+
+    @IsEmail()
+    @IsNotEmpty()
+    email: string;
+
+    @IsString()
+    @IsNotEmpty()
+    avatar: string;
+
+    @IsString()
+    @IsOptional()
+    first_name?: string;
+
+    @IsString()
+    @IsOptional()
+    last_name?: string;
 }

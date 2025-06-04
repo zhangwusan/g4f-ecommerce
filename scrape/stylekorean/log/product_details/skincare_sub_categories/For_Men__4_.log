@@ -1,0 +1,10 @@
+2025-05-30 12:54:26,019 - INFO - Processing: stylekorean/data/product_urls/skincare_sub_categories/For_Men__4_.json
+2025-05-30 12:54:26,024 - INFO - [FETCH] https://www.stylekorean.com:443/shop/round-lab-for-men-pine-calming-cica-toner-200ml/1744944563/
+2025-05-30 12:54:27,781 - INFO - Fetched: https://www.stylekorean.com:443/shop/round-lab-for-men-pine-calming-cica-toner-200ml/1744944563/
+2025-05-30 12:54:28,786 - INFO - [FETCH] https://www.stylekorean.com:443/shop/round-lab-for-men-pine-calming-cica-lotion-200ml/1744943570/
+2025-05-30 12:54:30,659 - INFO - Fetched: https://www.stylekorean.com:443/shop/round-lab-for-men-pine-calming-cica-lotion-200ml/1744943570/
+2025-05-30 12:54:31,666 - INFO - [FETCH] https://www.stylekorean.com:443/shop/round-lab-for-men-pine-calming-cica-cream-75ml/1744942221/
+2025-05-30 12:54:33,715 - INFO - Fetched: https://www.stylekorean.com:443/shop/round-lab-for-men-pine-calming-cica-cream-75ml/1744942221/
+2025-05-30 12:54:34,723 - INFO - [FETCH] https://www.stylekorean.com:443/shop/belif-manology-ultimate-multi-cleansing-foam-160ml/1706679603/
+2025-05-30 12:54:36,562 - INFO - Fetched: https://www.stylekorean.com:443/shop/belif-manology-ultimate-multi-cleansing-foam-160ml/1706679603/
+2025-05-30 12:54:37,572 - INFO - [DONE] Saved final data: stylekorean/data/product_details/skincare_sub_categories/For_Men__4_.json

@@ -1,10 +1,13 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { Op } from 'sequelize';
+import { col, fn, literal, Op } from 'sequelize';
 import Product from '@/app/models/product/product.model';
 import { ApiResponse } from '@/app/common/interfaces/api.interface';
-import ProductImage from '@/app/models/product/images.model';
+import ProductImage from '@/app/models/product/product-images.model';
 import { ProductDisplayResponse } from '@/app/common/interfaces/product.interface';
 import { toProductDisplayResponse } from '@/app/common/utils/helper/product.map';
+import ProductRating from '@/app/models/product/product-rating.model';
+import Label from '@/app/models/product/label.model';
+import ProductLabel from '@/app/models/product/product-label.model';
 
 
 @Injectable()
@@ -18,76 +21,168 @@ export class ProductEventService {
     }>> {
         try {
             const top_rating = await Product.findAll({
-                attributes: ['product_id', 'product_name', 'price', 'discount', 'rating'],
-                where: {
-                    rating: {
-                        [Op.gte]: 4.5
+                attributes: [
+                    'product_id',
+                    'product_name',
+                    'price',
+                    'discount',
+                    [fn('AVG', col('ratings.rating')), 'rating_avg'],
+                    [fn('COUNT', col('ratings.rating')), 'rating_count'],
+                ],
+                include: [
+                    {
+                        model: ProductRating,
+                        as: 'ratings',
+                        attributes: [],
+                        required: false
+                    },
+                    {
+                        model: ProductImage,
+                        as: 'images',
+                        attributes: ['image_url', 'image_id'],
+                        where: { is_main: true },
+                        required: false
                     }
+                ],
+                group: ['Product.product_id', 'images.image_id'],
+                order: [[literal('"rating_avg"'), 'DESC']],
+                limit: 10,
+                subQuery: false
+            });
+
+            const trending = await Product.findAll({
+                attributes: [
+                    'product_id',
+                    'product_name',
+                    'price',
+                    'discount',
+                    [fn('COUNT', col('ratings.rating')), 'rating_count'],
+                    [fn('AVG', col('ratings.rating')), 'rating_avg'],
+                ],
+                include: [
+                    {
+                        model: ProductRating,
+                        as: 'ratings',
+                        attributes: [],
+                        required: false
+                    },
+                    {
+                        model: ProductImage,
+                        as: 'images',
+                        attributes: ['image_url', 'image_id'],
+                        where: { is_main: true },
+                        required: false
+                    }
+                ],
+                group: ['Product.product_id', 'images.image_id'],
+                having: literal(`COUNT("ratings"."rating") >= 40`),
+                order: [[literal('"rating_count"'), 'DESC']],
+                limit: 10,
+                subQuery: false
+            });
+
+            const recommended = await Product.findAll({
+                attributes: [
+                    'product_id',
+                    'product_name',
+                    'price',
+                    'discount',
+                    'updated_at',
+                    [fn('AVG', col('ratings.rating')), 'rating_avg'],
+                    [fn('COUNT', col('ratings.rating')), 'rating_count'],
+                ],
+                include: [
+                    {
+                        model: ProductImage,
+                        as: 'images',
+                        attributes: ['image_url', 'image_id'],
+                        where: { is_main: true },
+                        required: false,
+                    },
+                    {
+                        model: Label,
+                        attributes: [],
+                        through: { attributes: [] },
+                        where: { name: 'featured' },
+                        required: true,
+                        duplicating: false,
+                    },
+                    {
+                        model: ProductRating,
+                        as: 'ratings',
+                        attributes: [],
+                        required: false,
+                    },
+                ],
+                group: ['Product.product_id', 'images.image_id'],
+                order: [['updated_at', 'DESC']],
+                limit: 10,
+                subQuery: false,
+            });
+
+            const best_deal = await Product.findAll({
+                attributes: [
+                    'product_id',
+                    'product_name',
+                    'price',
+                    'discount',
+                    [fn('AVG', col('ratings.rating')), 'rating_avg'],
+                    [fn('COUNT', col('ratings.rating')), 'rating_count'],
+                ],
+                where: {
+                    discount: {
+                        [Op.not]: null,
+                    },
                 },
                 include: [
                     {
                         model: ProductImage,
                         as: 'images',
-                        attributes: ['image_url']
+                        attributes: ['image_url', 'image_id'],
+                        where: { is_main: true },
+                        required: false,
                     },
-                ],
-                limit: 10,
-                order: [['rating', 'DESC']]
-            });
-
-            const trending = await Product.findAll({
-                attributes: ['product_id', 'product_name', 'price', 'discount', 'rating', 'rating_count'],
-                where: { rating_count: { [Op.gte]: 50 } },
-                include: [
-                    { 
-                        model: ProductImage, 
-                        as: 'images' ,
-                        attributes: ['image_url']
-                    },
-                ],
-                limit: 10,
-                order: [['rating_count', 'DESC']]
-            });
-
-            const recommended = await Product.findAll({
-                attributes: ['product_id', 'product_name', 'price', 'discount', 'rating', 'updated_at'],
-                where: { is_featured: true },
-                include: [
-                    { 
-                        model: ProductImage, 
-                        as: 'images',
-                        attributes: ['image_url']
-                    },
-                ],
-                limit: 10,
-                order: [['updated_at', 'DESC']]
-            });
-
-            const best_deal = await Product.findAll({
-                attributes: ['product_id', 'product_name', 'price', 'discount', 'rating'],
-                where: { discount: { [Op.not]: null } },
-                include: [
                     {
-                        model: ProductImage,
-                        as: 'images',
-                        attributes: ['image_url']
+                        model: ProductRating,
+                        as: 'ratings',
+                        attributes: [],
+                        required: false,
                     },
                 ],
+                group: ['Product.product_id', 'images.image_id'],
+                order: [['discount', 'DESC']],
                 limit: 10,
-                order: [['discount', 'DESC']]
+                subQuery: false,
             });
 
             const three_row_listing_product = await Product.findAll({
-                attributes: ['product_id', 'product_name', 'price', 'discount', 'rating'],
+                attributes: [
+                    'product_id',
+                    'product_name',
+                    'price',
+                    'discount',
+                    [fn('AVG', col('ratings.rating')), 'rating_avg'],
+                    [fn('COUNT', col('ratings.rating')), 'rating_count'],
+                ],
                 include: [
                     {
                         model: ProductImage,
                         as: 'images',
-                        attributes: ['image_url']
+                        attributes: ['image_url', 'image_id'],
+                        where: { is_main: true },
+                        required: false,
+                    },
+                    {
+                        model: ProductRating,
+                        as: 'ratings',
+                        attributes: [],
+                        required: false,
                     },
                 ],
+                group: ['Product.product_id', 'images.image_id'],
                 limit: 9,
-            })
+                subQuery: false,
+            });
 
             return {
                 message: 'Product events fetched successfully',

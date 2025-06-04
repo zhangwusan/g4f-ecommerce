@@ -24,7 +24,7 @@ export default function Header({ logo = 'G4F', navLinks, showSearch = true }: He
   const { data: session } = useSession()
 
   return (
-    <header className="w-full shadow px-4 py-2 md:px-8 relative z-20">
+    <header className="w-full shadow px-4 py-4 md:px-8 relative z-20">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 flex-wrap">
         <Logo text={logo} />
 

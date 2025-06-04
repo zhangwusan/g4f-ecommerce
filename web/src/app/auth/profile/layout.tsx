@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { Menu, X } from 'lucide-react';
 import ProfileSidebar from '@/components/layouts/aside-profile';
-import Button from '@/components/ui/xbutton/base';
 import { MenuItemProfile } from '@/lib/type/profile.interface';
-import { ConfirmationModal } from '@/components/ui/confirm-model';
+import { ConfirmationModal } from '@/components/section/confirm-model';
+import { Button } from '@/components/ui/button';
 
 interface Props {
   children: React.ReactNode;
@@ -61,7 +61,12 @@ export default function ProfileLayout({ children }: Props) {
   }
 
   if (error) {
-    return <div className="flex items-center justify-center h-screen text-red-500">{error}</div>;
+    return (
+      <div className="flex items-center justify-center h-screen text-red-500">
+        <div>{error}</div>
+        <Button onSubmit={handleCancelLogout}>Log Out</Button>
+      </div>
+    )
   }
 
   return (
@@ -70,7 +75,7 @@ export default function ProfileLayout({ children }: Props) {
       <div className={`lg:hidden absolute ${sidebarOpen ? '' : 'top-4 left-4 z-50'} `}>
         <Button
           onClick={() => setSidebarOpen((prev) => !prev)}
-          className="text-white bg-pink-600 hover:bg-pink-700 p-2 rounded-md shadow"
+          className="p-2 rounded-md shadow"
         >
           {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </Button>

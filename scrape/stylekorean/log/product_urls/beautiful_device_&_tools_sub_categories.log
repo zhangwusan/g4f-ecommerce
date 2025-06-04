@@ -1,0 +1,12 @@
+2025-05-29 22:29:50,265 - INFO - [START] Scraping: Beauty Device (10) → https://www.stylekorean.com/shop/list.php?ca_id=1440
+2025-05-29 22:29:53,501 - INFO - [DONE] Beauty Device (10) — saved 10 products to Beauty_Device__10_.json
+2025-05-29 22:29:53,505 - INFO - [START] Scraping: Cotton pad (3) → https://www.stylekorean.com/shop/list.php?ca_id=1410
+2025-05-29 22:29:56,111 - INFO - [DONE] Cotton pad (3) — saved 3 products to Cotton_pad__3_.json
+2025-05-29 22:29:56,116 - INFO - [START] Scraping: Brush (41) → https://www.stylekorean.com/shop/list.php?ca_id=1420
+2025-05-29 22:30:00,354 - INFO - [DONE] Brush (41) — saved 41 products to Brush__41_.json
+2025-05-29 22:30:00,360 - INFO - [START] Scraping: Others (25) → https://www.stylekorean.com/shop/list.php?ca_id=1430
+2025-05-29 22:30:03,948 - INFO - [DONE] Others (25) — saved 24 products to Others__25_.json
+2025-05-29 22:32:30,133 - INFO - [SKIP] Beauty Device (10) — already exists: stylekorean/data/product_urls/beautiful_device_&_tools_sub_categories/Beauty_Device__10_.json
+2025-05-29 22:32:30,135 - INFO - [SKIP] Cotton pad (3) — already exists: stylekorean/data/product_urls/beautiful_device_&_tools_sub_categories/Cotton_pad__3_.json
+2025-05-29 22:32:30,138 - INFO - [SKIP] Brush (41) — already exists: stylekorean/data/product_urls/beautiful_device_&_tools_sub_categories/Brush__41_.json
+2025-05-29 22:32:30,140 - INFO - [SKIP] Others (25) — already exists: stylekorean/data/product_urls/beautiful_device_&_tools_sub_categories/Others__25_.json

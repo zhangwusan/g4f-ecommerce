@@ -11,8 +11,8 @@ export class DisplayProductEachCategoriesService {
         try {
             const result: any[] = await Product.findAll({
                 attributes: [
-                    [col('category.category_name'), 'category'], // ✅ category name
-                    [fn('COUNT', col('product_id')), 'count'], // ✅ product count
+                    [col('category.category_name'), 'category'], 
+                    [fn('COUNT', col('product_id')), 'count'],
                 ],
                 include: [
                     {

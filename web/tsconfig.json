@@ -20,9 +20,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/libs/*" : ["./src/libs/*"]
+      "@/libs/*" : ["./src/libs/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/services/*": ["./src/services/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/services/.service.ts"],
   "exclude": ["node_modules"]
 }

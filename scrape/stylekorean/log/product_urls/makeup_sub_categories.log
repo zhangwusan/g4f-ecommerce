@@ -1,0 +1,45 @@
+2025-05-29 22:27:19,528 - INFO - [START] Scraping: Foundation (27) → https://www.stylekorean.com/shop/list.php?ca_id=111010
+2025-05-29 22:27:25,192 - INFO - [DONE] Foundation (27) — saved 27 products to Foundation__27_.json
+2025-05-29 22:27:25,197 - INFO - [START] Scraping: Makeup Base (21) → https://www.stylekorean.com/shop/list.php?ca_id=111020
+2025-05-29 22:27:29,880 - INFO - [DONE] Makeup Base (21) — saved 21 products to Makeup_Base__21_.json
+2025-05-29 22:27:29,885 - INFO - [START] Scraping: Powder & Pact (13) → https://www.stylekorean.com/shop/list.php?ca_id=111030
+2025-05-29 22:27:33,573 - INFO - [DONE] Powder & Pact (13) — saved 13 products to Powder___Pact__13_.json
+2025-05-29 22:27:33,579 - INFO - [START] Scraping: Concealer (10) → https://www.stylekorean.com/shop/list.php?ca_id=111040
+2025-05-29 22:27:37,228 - INFO - [DONE] Concealer (10) — saved 10 products to Concealer__10_.json
+2025-05-29 22:27:37,232 - INFO - [START] Scraping: Cushion (64) → https://www.stylekorean.com/shop/list.php?ca_id=111050
+2025-05-29 22:27:52,295 - INFO - [DONE] Cushion (64) — saved 63 products to Cushion__64_.json
+2025-05-29 22:27:52,300 - INFO - [START] Scraping: Blusher & Highlighter (43) → https://www.stylekorean.com/shop/list.php?ca_id=111060
+2025-05-29 22:28:04,894 - INFO - [DONE] Blusher & Highlighter (43) — saved 43 products to Blusher___Highlighter__43_.json
+2025-05-29 22:28:04,898 - INFO - [START] Scraping: Eyebrows (13) → https://www.stylekorean.com/shop/list.php?ca_id=112010
+2025-05-29 22:28:09,142 - INFO - [DONE] Eyebrows (13) — saved 13 products to Eyebrows__13_.json
+2025-05-29 22:28:09,147 - INFO - [START] Scraping: Eyeshadow (40) → https://www.stylekorean.com/shop/list.php?ca_id=112020
+2025-05-29 22:28:18,000 - INFO - [DONE] Eyeshadow (40) — saved 40 products to Eyeshadow__40_.json
+2025-05-29 22:28:18,005 - INFO - [START] Scraping: Eyeliner (11) → https://www.stylekorean.com/shop/list.php?ca_id=112030
+2025-05-29 22:28:22,230 - INFO - [DONE] Eyeliner (11) — saved 11 products to Eyeliner__11_.json
+2025-05-29 22:28:22,236 - INFO - [START] Scraping: Mascara (18) → https://www.stylekorean.com/shop/list.php?ca_id=112040
+2025-05-29 22:28:26,754 - INFO - [DONE] Mascara (18) — saved 18 products to Mascara__18_.json
+2025-05-29 22:28:26,758 - INFO - [START] Scraping: Lip Stick (29) → https://www.stylekorean.com/shop/list.php?ca_id=113010
+2025-05-29 22:28:34,358 - INFO - [DONE] Lip Stick (29) — saved 28 products to Lip_Stick__29_.json
+2025-05-29 22:28:34,364 - INFO - [START] Scraping: Lip Tint (88) → https://www.stylekorean.com/shop/list.php?ca_id=113020
+2025-05-29 22:28:54,277 - INFO - [DONE] Lip Tint (88) — saved 87 products to Lip_Tint__88_.json
+2025-05-29 22:28:54,282 - INFO - [START] Scraping: Lip Gloss (25) → https://www.stylekorean.com/shop/list.php?ca_id=113030
+2025-05-29 22:29:00,715 - INFO - [DONE] Lip Gloss (25) — saved 23 products to Lip_Gloss__25_.json
+2025-05-29 22:29:00,718 - INFO - [START] Scraping: Lip Care (82) → https://www.stylekorean.com/shop/list.php?ca_id=113040
+2025-05-29 22:29:10,168 - INFO - [DONE] Lip Care (82) — saved 82 products to Lip_Care__82_.json
+2025-05-29 22:29:10,174 - INFO - [START] Scraping: Nails (5) → https://www.stylekorean.com/shop/list.php?ca_id=1140
+2025-05-29 22:29:13,277 - INFO - [DONE] Nails (5) — saved 5 products to Nails__5_.json
+2025-05-29 22:32:27,045 - INFO - [SKIP] Foundation (27) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Foundation__27_.json
+2025-05-29 22:32:27,048 - INFO - [SKIP] Makeup Base (21) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Makeup_Base__21_.json
+2025-05-29 22:32:27,051 - INFO - [SKIP] Powder & Pact (13) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Powder___Pact__13_.json
+2025-05-29 22:32:27,053 - INFO - [SKIP] Concealer (10) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Concealer__10_.json
+2025-05-29 22:32:27,057 - INFO - [SKIP] Cushion (64) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Cushion__64_.json
+2025-05-29 22:32:27,060 - INFO - [SKIP] Blusher & Highlighter (43) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Blusher___Highlighter__43_.json
+2025-05-29 22:32:27,062 - INFO - [SKIP] Eyebrows (13) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Eyebrows__13_.json
+2025-05-29 22:32:27,064 - INFO - [SKIP] Eyeshadow (40) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Eyeshadow__40_.json
+2025-05-29 22:32:27,066 - INFO - [SKIP] Eyeliner (11) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Eyeliner__11_.json
+2025-05-29 22:32:27,068 - INFO - [SKIP] Mascara (18) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Mascara__18_.json
+2025-05-29 22:32:27,070 - INFO - [SKIP] Lip Stick (29) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Lip_Stick__29_.json
+2025-05-29 22:32:27,072 - INFO - [SKIP] Lip Tint (88) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Lip_Tint__88_.json
+2025-05-29 22:32:27,074 - INFO - [SKIP] Lip Gloss (25) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Lip_Gloss__25_.json
+2025-05-29 22:32:27,075 - INFO - [SKIP] Lip Care (82) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Lip_Care__82_.json
+2025-05-29 22:32:27,077 - INFO - [SKIP] Nails (5) — already exists: stylekorean/data/product_urls/makeup_sub_categories/Nails__5_.json

@@ -1,8 +1,16 @@
-import { Table, Column, Model, DataType, BelongsToMany } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, BelongsToMany, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import Product from './product.model';
 import ProductTag from './product-tags.model';
+import User from '../user/user.model';
 
-@Table({ tableName: 'tags', timestamps: true, paranoid: true })
+@Table({
+  tableName: 'tags',
+  timestamps: true,
+  paranoid: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
+  deletedAt: 'deleted_at',
+})
 class Tag extends Model<Tag> {
   @Column({ primaryKey: true, autoIncrement: true, type: DataType.INTEGER })
   id!: number;
@@ -12,6 +20,22 @@ class Tag extends Model<Tag> {
 
   @BelongsToMany(() => Product, () => ProductTag)
   products!: Product[];
+  // Soft delete and User tracking
+  @ForeignKey(() => User) @Column({ type: DataType.INTEGER, allowNull: true }) creator_id!: number;
+  @ForeignKey(() => User) @Column({ type: DataType.INTEGER, allowNull: true }) updater_id!: number;
+  @ForeignKey(() => User) @Column({ type: DataType.INTEGER, allowNull: true }) deleter_id!: number;
+
+  @BelongsTo(() => User, { foreignKey: 'creator_id', as: 'creator' })
+  @BelongsTo(() => User, { foreignKey: 'updater_id', as: 'updater' })
+  @BelongsTo(() => User, { foreignKey: 'deleter_id', as: 'deleter' })
+
+  creator!: User;
+  updater!: User;
+  deleter!: User;
+
+  created_at: Date;
+  updated_at: Date;
+  deleted_at: Date;
 }
 
 export default Tag;

@@ -1,0 +1,4 @@
+2025-05-29 22:22:03,055 - INFO - [START] Scraping subcategories for Body Care → https://www.stylekorean.com/shop/list.php?ca_id=12
+2025-05-29 22:22:05,237 - INFO - [DONE] Body Care → Saved 5 subcategories to stylekorean/data/sub_categories/body_care_sub_categories.json
+2025-05-29 22:32:36,518 - INFO - [SKIP] Body Care → Already scraped and saved: stylekorean/data/sub_categories/body_care_sub_categories.json
+2025-05-30 12:11:24,078 - INFO - [SKIP] Body Care → Already scraped and saved: stylekorean/data/sub_categories/body_care_sub_categories.json

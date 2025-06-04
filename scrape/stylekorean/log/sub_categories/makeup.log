@@ -1,0 +1,4 @@
+2025-05-29 22:21:54,633 - INFO - [START] Scraping subcategories for Makeup → https://www.stylekorean.com/shop/list.php?ca_id=11
+2025-05-29 22:22:02,050 - INFO - [DONE] Makeup → Saved 4 subcategories to stylekorean/data/sub_categories/makeup_sub_categories.json
+2025-05-29 22:32:36,517 - INFO - [SKIP] Makeup → Already scraped and saved: stylekorean/data/sub_categories/makeup_sub_categories.json
+2025-05-30 12:11:24,077 - INFO - [SKIP] Makeup → Already scraped and saved: stylekorean/data/sub_categories/makeup_sub_categories.json

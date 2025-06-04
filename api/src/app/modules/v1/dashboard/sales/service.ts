@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { col, fn, Op } from 'sequelize';
 import Order from '@/app/models/order/order.model';
 import { MonthlySalesData, SalesResponse } from './interface';
+import Payment from '@/app/models/payment/payment.model';
 
 @Injectable()
 export class SalesService {
@@ -14,18 +15,26 @@ export class SalesService {
             const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
             const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-            const result: any = await Order.findOne({
-                where: {
-                    created_at: {
-                        [Op.between]: [startOfMonth, endOfMonth],
-                    },
+            const whereClause: any = {
+                payment_status: {
+                    [Op.or]: [
+                        'Completed',
+                        'succeeded'
+                    ]
                 },
-                attributes: [[fn('SUM', col('total_amount')), 'total_amount']],
+                payment_date: {
+                    [Op.between]: [startOfMonth, endOfMonth],
+                },
+            };
+
+            const result: any = await Payment.findOne({
+                where: whereClause,
+                attributes: [[fn('SUM', col('amount')), 'amount']],
                 raw: true,
             });
 
             const monthName = date.toLocaleString('default', { month: 'long' });
-            const sales = Number(result.total_amount || 0);
+            const sales = Number(result.amount || 0);
 
             salesData.push({
                 month: monthName,

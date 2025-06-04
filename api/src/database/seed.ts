@@ -4,11 +4,9 @@ import "colors";
 import * as readlineSync from 'readline-sync';
 import { Sequelize } from 'sequelize-typescript';
 import { UserSeeder } from "./seeds/user/seed";
-import { CartSeeder } from "./seeds/cart/seed";
-import { ReviewSeeder } from "./seeds/review/seed";
 import { OrderSeeder } from "./seeds/order/seed";
 import { PaymentSeeder } from "./seeds/payment/seed";
-import ProductGenerator from "./seeds/product/fake";
+import { ScrapData } from "./seeds/product/stylekorean.scrap";
 
 // ================================================================>> Custom Library
 
@@ -37,15 +35,12 @@ class SeederInitializer {
     private async seedData() {
         //===================== user data
         await UserSeeder.seed();
-        await ProductGenerator.generateAndInsertMockProducts(200);
-        // await BrandSeeder.seed();
-        // await CategorySeeder.seed();
-        // await ProductSeeder.seed();
-        // await CartSeeder.seed();
-        await ReviewSeeder.seed();
+        await ScrapData.seed();
+        // await ProductGeneratorSeeder.seed(200);
         await OrderSeeder.seed();
         await PaymentSeeder.seed();
-        
+        // await OrderPaymentSeeder.seed(100)
+
         console.log('\x1b[32m%s\x1b[0m', 'Seeding completed successfully.');
     }
 

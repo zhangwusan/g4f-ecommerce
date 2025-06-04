@@ -7,6 +7,9 @@ import { CartModule } from "./cart/module";
 import { FileModule } from "./file/module";
 import { PaymentModule } from "./payment/module";
 import { DashboardModule } from "./dashboard/module";
+import { OrderModule } from "./order/module";
+import { UserModule } from "./user/module";
+import { ReportModule } from "./reports/module";
 
 
 @Module({
@@ -18,7 +21,10 @@ import { DashboardModule } from "./dashboard/module";
         CartModule,
         FileModule,
         PaymentModule,
-        DashboardModule
+        DashboardModule,
+        OrderModule,
+        UserModule,
+        ReportModule
     ],
     controllers: [],
     providers: [],
