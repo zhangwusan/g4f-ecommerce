@@ -7,7 +7,7 @@ WORKDIR /app
 RUN npm install -g next@latest
 # Copy package files and install all dependencies (including dev)
 COPY package*.json ./
-RUN npm install --force
+RUN npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .

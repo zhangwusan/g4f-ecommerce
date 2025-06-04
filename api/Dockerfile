@@ -11,6 +11,8 @@ RUN npm install -g @nestjs/cli
 # Step 4: Copy package files and install dependencies
 COPY package*.json ./
 
+RUN npm install --legacy-peer-deps
+
 # Step 5: Copy the rest of your code
 COPY . .
 
@@ -21,4 +23,6 @@ RUN chmod +x ./entrypoint.sh
 EXPOSE 4400
 
 # Step 9: Set entrypoint
-ENTRYPOINT ["sh", "./entrypoint.sh"]
+# ENTRYPOINT ["sh", "./entrypoint.sh"]
+
+CMD ["npm", "run", "start:dev"]
